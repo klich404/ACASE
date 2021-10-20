@@ -1,0 +1,91 @@
+/* AVENIR HEAVY FONT */
+@import url(//db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
+/* AVENIR MEDIUM */
+@import url(//db.onlinewebfonts.com/c/0983e84d4a1963e075b5ae8ca12e2a4f?family=Avenir+Medium);
+/* AVENIR LIGHT */
+@import url(//db.onlinewebfonts.com/c/116af611cbcd9e4bada60b4e700430c1?family=Avenir+Light);
+/* VARIABLES */
+
+:root {
+    --bold-family: "Avenir Heavy", sans-serif;
+    --bold-medium: "Avenir Medium", sans-serif;
+    --light-letter: "Avenir Light", sans-serif;
+    --bg-color: #05137a;
+    --header-color: #6ac8f8;
+    --logo-color: #6832d9;
+    --first-color: #f6c843;
+    --second-color: #ef7a2e;
+    --third-color: #7ccd9a;
+    --fourth-color: #e3558f;
+    --transition: 0.15s;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: cent;
+    height: 100vh;
+}
+
+div h1 {
+    font-family: var(--bold-family);
+    color: var(--logo-color);
+    margin-bottom: -10px;
+}
+div span {
+    font-family: var(--bold-family);
+    display: block;
+    font-size: 20px;
+    margin-left: 60px;
+}
+div p {
+    font-family: var(--bold-family);
+    font-size: 20px;
+}
+.login-body {
+    width: 25rem;
+    padding: 2rem;
+    text-align: center;
+    margin-top: auto;
+    display: block;
+    background-color: white;
+    margin-bottom: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px black;
+}
+
+.login, .password-button {
+    margin: 5px;
+    width: 20rem;
+    padding: 10px;
+    font-family: var(--light-letter);
+    font-size: 20px;
+    color: grey;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.enter-button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    text-align: center;
+    color: white;
+    font-family: var(--bold-family);
+    border: 1px solid var(--bg-color);
+    transition: var(--transition);
+    opacity: 90%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.enter-button:hover {
+    color: white;
+    transition: var(--transition);
+    opacity: 80;
+}
