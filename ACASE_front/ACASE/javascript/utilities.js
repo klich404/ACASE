@@ -1,0 +1,27 @@
+// Function to return keywords values to button "Palabras claves"
+function getFetchKeywords () {
+  (async () => {
+    const keywords = await axios.get('http://127.0.0.1:5000/keywords');
+    let listKeywords = ``
+    keywords.data.forEach(element => {
+      listKeywords += `<option id="keywords-tag" value=${element}></option>`
+    })
+    const datalist = document.getElementById('keywords')
+    datalist.innerHTML = listKeywords;
+  })();
+}
+
+// Function to return url values to button "URL"
+function getFetchUrl () {
+  (async () => {
+    const url = await axios.get('http://127.0.0.1:5000/url');
+    let urlList = ``
+    url.data.forEach(element => {
+      urlList += `<option value=${element}></option>`
+    });
+    const listUrl = document.getElementById('url-list')
+    listUrl.innerHTML = urlList;
+  })();
+}
+
+export { getFetchKeywords, getFetchUrl };

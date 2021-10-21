@@ -1,11 +1,14 @@
 import { Inbox } from './cards.js';
+import { getFetchKeywords, getFetchUrl } from './utilities.js';
 const searchButton = document.getElementById('search-button');
 
 window.addEventListener('load', function () {
-  const newObject = new Inbox();
-  searchButton.addEventListener('click', () => newObject.getFetchApi());
-  const keywords = new Inbox();
-  keywords.getFetchApi();
-  const url = new Inbox();
-  url.getFetchApi();
+  getFetchKeywords();
+  getFetchUrl();
+  //searchButton.addEventListener('click', () => newObject.getFetchApi());
+  searchButton.addEventListener('click', () => {
+    const KeyWord = document.getElementById('keywords-list');
+    const newObject = new Inbox();
+    newObject.getFetchApi(KeyWord.value);
+  });
 });
