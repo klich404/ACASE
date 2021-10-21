@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--AXIOS-->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
   <!--BOOTSTRAP 5-->
@@ -17,12 +19,12 @@
 
 <body>
   <!-- HEADER -->
-  <div class="container">
+  <div class="container-fluid" id="principal-container">
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarNav">
-            <a class="nav-link disabled" aria-current="page" href="#">
+            <a class="nav-link disabled">
               <h1 class="acase">ACASE</h1>
               <span class="company-name">inspyra</span>
             </a>
@@ -31,7 +33,7 @@
                 <a class="nav-link" href="./index.html">Bandeja Principal</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Mi Selección</a>
+                <a class="nav-link" href="./index_selection.html">Mi Selección</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./trash_selection.html">Papelera</a>
@@ -51,137 +53,16 @@
     </div>
 
     <!--CARDS-->
-    <!--     <div class="row">
-      <div class="col-12 col-lg-4 p-3">
-        <div class=" card">
-          <div class="card-body p-2">
-            <h5 class="card-title mb-1">Resource Title</h5>
-            <p class="card-text mb-2">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit.
-              Voluptates rerum optio, magni
-              laborum nemo sed voluptatem pariatur dicta architecto! Itaque quia deleniti blanditiis, ducimus nostrum
-              nam
-              at
-              molestias facere exercitationem!
-            </p>
-            <p class="date mb-1">Published on Jun 17</p>
-            <p class="source-url mb-2">Source: www.latam.mercer.com/</p>
-            <a href="#" class="btn btn-primary">Visitar</a>
-            <img class="trash-icon" src="./icons/trash.png" alt="trash">
-            <img class="check-icon" src="./icons/check-file.png" alt="check">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 p-3">
-        <div class="card">
-          <div class="card-body p-2">
-            <h5 class="card-title mb-1">Resource Title</h5>
-            <p class="card-text mb-2">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit.
-              Voluptates rerum optio, magni
-              laborum nemo sed voluptatem pariatur dicta architecto! Itaque quia deleniti blanditiis, ducimus nostrum
-              nam
-              at
-              molestias facere exercitationem!
-            </p>
-            <p class="date mb-1">Published on Jun 17</p>
-            <p class="source-url mb-2">Source: www.latam.mercer.com/</p>
-            <a href="#" class="btn btn-primary">Visitar</a>
-            <img class="trash-icon" src="./icons/trash.png" alt="trash">
-            <img class="check-icon" src="./icons/check-file.png" alt="check">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 p-3">
-        <div class="card">
-          <div class="card-body p-2">
-            <h5 class="card-title mb-1">Resource Title</h5>
-            <p class="card-text mb-2">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit.
-              Voluptates rerum optio, magni
-              laborum nemo sed voluptatem pariatur dicta architecto! Itaque quia deleniti blanditiis, ducimus nostrum
-              nam
-              at
-              molestias facere exercitationem!
-            </p>
-            <p class="date mb-1">Published on Jun 17</p>
-            <p class="source-url mb-2">Source: www.latam.mercer.com/</p>
-            <a href="#" class="btn btn-primary">Visitar</a>
-            <img class="trash-icon" src="./icons/trash.png" alt="trash">
-            <img class="check-icon" src="./icons/check-file.png" alt="check">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 p-3">
-        <div class="card">
-          <div class="card-body p-2">
-            <h5 class="card-title mb-1">Resource Title</h5>
-            <p class="card-text mb-2">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit.
-              Voluptates rerum optio, magni
-              laborum nemo sed voluptatem pariatur dicta architecto! Itaque quia deleniti blanditiis, ducimus nostrum
-              nam
-              at
-              molestias facere exercitationem!
-            </p>
-            <p class="date mb-1">Published on Jun 17</p>
-            <p class="source-url mb-2">Source: www.latam.mercer.com/</p>
-            <a href="#" class="btn btn-primary">Visitar</a>
-            <img class="trash-icon" src="./icons/trash.png" alt="trash">
-            <img class="check-icon" src="./icons/check-file.png" alt="check">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 p-3">
-        <div class="card">
-          <div class="card-body p-2">
-            <h5 class="card-title mb-1">Resource Title</h5>
-            <p class="card-text mb-2">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit.
-              Voluptates rerum optio, magni
-              laborum nemo sed voluptatem pariatur dicta architecto! Itaque quia deleniti blanditiis, ducimus nostrum
-              nam
-              at
-              molestias facere exercitationem!
-            </p>
-            <p class="date mb-1">Published on Jun 17</p>
-            <p class="source-url mb-2">Source: www.latam.mercer.com/</p>
-            <a href="#" class="btn btn-primary">Visitar</a>
-            <img class="trash-icon" src="./icons/trash.png" alt="trash">
-            <img class="check-icon" src="./icons/check-file.png" alt="check">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 p-3">
-        <div class="card">
-          <div class="card-body p-2">
-            <h5 class="card-title mb-1">Resource Title</h5>
-            <p class="card-text mb-2">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit.
-              Voluptates rerum optio, magni
-              laborum nemo sed voluptatem pariatur dicta architecto! Itaque quia deleniti blanditiis, ducimus nostrum
-              nam
-              at
-              molestias facere exercitationem!
-            </p>
-            <p class="date mb-1">Published on Jun 17</p>
-            <p class="source-url mb-2">Source: www.latam.mercer.com/</p>
-            <a href="#" class="btn btn-primary">Visitar</a>
-            <img class="trash-icon" src="./icons/trash.png" alt="trash">
-            <img class="check-icon" src="./icons/check-file.png" alt="check">
-          </div>
-        </div>
-      </div> -->
-    <!--       <div class="arrows">
-        <img class="left-arrow" src="./icons/left-arrow.png" alt="left-arrow">
-        <img class="right-arrow" src="./icons/right-arrow.png" alt="right-arrow">
-      </div> -->
+    <div id="cards-container" class="row g-3">
+      <!--The html content is in cards.js-->
+    </div>
+  </div>
   </div>
   </div>
 
 
   <!--JAVASCRIPT-->
-  <script src=" javascript/app.js"></script>
+  <script src=" javascript/app.js" type="module"></script>
 </body>
 
 </html>

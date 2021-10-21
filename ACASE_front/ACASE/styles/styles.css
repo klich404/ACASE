@@ -73,16 +73,18 @@ nav span {
 .col-one {
     background-color: var(--logo-color);
     height: 23.5px;
-    border-bottom: 1.5px solid var(--bg-color);
 }
 .col-two {
     background-color: var(--fourth-color);
+    height: 23.5px;
 }
 .col-three {
     background-color: white;
+    height: 23.5px;
 }
 .col-four {
     background-color: var(--second-color);
+    height: 23.5px;
 }
 
 /* SEARCHING TOOLS */
@@ -101,13 +103,14 @@ nav span {
     color: grey;
 }
 
-.btn {
+.container-searching .btn {
     height: 2.5rem;
     width: 10rem;
     border-radius: 10px;
     background-color: var(--header-color);
     text-align: center;
     color: white;
+    font-size: 16px;
     font-family: var(--bold-family);
     font-weight: 100px;
     border: 1px solid var(--header-color);
@@ -126,11 +129,11 @@ nav span {
 .card {
     text-align: justify;
     width: 23.5rem;
-    height: 10rem;
+    height: auto;
     display: flexbox;
-    border: 2px solid white;
+    border: 1px solid black;
     justify-content: space-between;
-    border-radius: 11px 11px 0 0;
+    border-radius: 12px;
 }
 
 .card-title {
@@ -147,67 +150,35 @@ nav span {
     font-size: 12.6px;
     font-family: var(--light-letter);
 }
-.cards-buttons .btn {
-    width: 140px;
-    height: 30px;
+.btn {
+    width: 80px;
+    height: 25px;
     background-color: var(--bg-color);
     border: 1px solid var(--bg-color);
     font-family: var(--bold-medium);
-    align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 6px;
-    margin-left: 4px;
-}
-
-.cards-buttons {
-    background-color: white;
-    border-radius: 0 0 11px 11px;
-    border: 2px solid white;
+    align-items: center;
+    font-size: 12.5px;
+    margin-top: 3px;
+    margin-left: 2.5px;
 }
 
 /* ICONS */
 .trash-icon {
-    width: 25px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     float: right;
     display: flex;
-    margin: 22px 4px;
+    margin: 1px;
 }
 .check-icon {
     width: 24px;
-    height: 25px;
+    height: 27px;
     float: right;
     display: flex;
-    margin: 24px -2px;
+    margin: 2px -1px;
 }
 .check-icon:hover, .trash-icon:hover {
     cursor: pointer;
     opacity: 90%;
-}
-
-/* LEFT AND RIGHT ARROWS */
-.arrows {
-    margin: 5px 50px;
-    width: 35px;
-    height: 40px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-}
-.arrows:hover {
-    cursor: pointer;
-    opacity: 90%;
-}
-
-.popover {
-    visibility: hidden;
-    background-color: #FAFAFA;
-    border: 1px solid #DDDDDD;
-    border-radius: 5px;
-    margin: 9rem;
-    margin-left: 9.8rem;
-    height: 50%;
-    width: 22.5rem;
-    max-width: 23rem;
 }

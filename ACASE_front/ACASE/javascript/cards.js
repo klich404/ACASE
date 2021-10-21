@@ -25,12 +25,11 @@ class Inbox {
             </p>
             <p class="date mb-1"><b>Fecha: </b>${element.date}</p>
             <p class="source-url mb-2"><b>Fuente:</b> ${element.url}/</p>
+            <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
+            <a href="#" target="_blank" class="btn btn-primary">Modificar</a>
+            <img id="drop-button" class="trash-icon" src="./icons/trash.png" alt="trash">
+            <img id="select-button" class="check-icon" src="./icons/check-file.png" alt="check">
           </div>
-          </div>
-          <div class="cards-buttons">
-              <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
-              <img id="drop-button" class="trash-icon" src="./icons/trash.png" alt="trash">
-              <img id="select-button" class="check-icon" src="./icons/check-file.png" alt="check">
           </div>
         </div>`
     });
