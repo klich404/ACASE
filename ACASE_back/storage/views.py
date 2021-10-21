@@ -14,6 +14,16 @@ def retrieve_items(request):
                      'text':attr.text} for attr in list(obj)]))
 
 
+def edit_items(request):
+    obj = list(Item.objects.all())
+    return HttpResponse(
+        json.dumps([{'id':attr.id,
+                     'title':attr.title,
+                     'url':attr.url,
+                     'date':attr.date.strftime('%Y-%m-%d'),
+                     'text':attr.text} for attr in list(obj)]))
+
+
 def keywords(request):
     obj = list(Keyword.objects.all())
     return HttpResponse(
