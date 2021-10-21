@@ -18,3 +18,12 @@ class Item(models.Model):
     vigilance_category   = models.TextField(blank=True)
     information_category = models.TextField(blank=True)
     cita                 = models.CharField(max_length=200, blank=True)
+
+
+class Keyword(models.Model):
+    word  = models.CharField(max_length=30, blank=False)
+    items = models.ManyToManyField(Item)
+
+class Target(models.Model):
+    name     = models.CharField(max_length=30, blank=False)
+    base_url = models.SlugField(max_length=200, blank=False)
