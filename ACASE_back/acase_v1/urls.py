@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from storage.views import retrieve_items, keywords, target
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('card/', retrieve_items),
+    path('keywords/', keywords),
+    path('target/', target),
 ]
