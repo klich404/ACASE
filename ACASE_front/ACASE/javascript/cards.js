@@ -1,19 +1,22 @@
 class Inbox {
   // Get API information
-  getFetchApi(keyWord = null) {
+  getFetchApi(keyWord = null, urlValue = null) {
     (async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/card');
+        const response = await axios.get('http://127.0.0.1:8000/card/');
         let responseList = response.data; // All objects 10 []
         if (keyWord) responseList = this.filterKeyword(keyWord, responseList); // Filter object 1 []
-        this.makeCards(responseList); // 10 [] o 1 [] depeding if keyword exists
+        let cards = this.makeCards(responseList); // 10 [] o 1 [] depeding if keyword exists
+        document.getElementById('cards-container').innerHTML = cards;
+        this.filterCardByButton(cards) // Giving to this function the rendered cards
+        //this.filterUrl(urlValue, responseList);
       } catch (error) {
         console.log(error);
       }
-    })(); 
+    })();
   };
 
-  // Function return the cards to final user
+  // This function return the cards to final user
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
@@ -26,16 +29,16 @@ class Inbox {
             <p class="date mb-1"><b>Fecha: </b>${element.date}</p>
             <p class="source-url mb-2"><b>Fuente:</b> ${element.url}/</p>
             <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
-            <a href="#" target="_blank" class="btn btn-primary">Modificar</a>
+            <a href="#" class="modify-button btn btn-primary">Modificar</a>
             <img id="drop-button" class="trash-icon" src="./icons/trash.png" alt="trash">
             <img id="select-button" class="check-icon" src="./icons/check-file.png" alt="check">
           </div>
           </div>
         </div>`
     });
-    const cardsContainer = document.getElementById('cards-container');
-    cardsContainer.innerHTML = htmlElements;
+    return htmlElements
   }
+
   filterKeyword(keyWord, response) {
     let listObject = []
     response.forEach(element => {
@@ -45,6 +48,27 @@ class Inbox {
     })
     return listObject;
   }
+
+/*   filterUrl(url, response) {
+    response.forEach(element => {
+      console.log(element.url);
+    }) 
+   }*/
+
+// Function to filter the cards by Button "Modificar"
+  filterCardByButton (cards) {
+    const idModify = document.querySelectorAll('.modify-button');
+    idModify.forEach(function(idModify) {
+      idModify.addEventListener('click', function(event) {
+        let cardInformation = idModify.parentElement.innerHTML;
+        console.log(cardInformation);
+        cardInformation = document.documentElement.textContent;
+        console.log(cardInformation);
+        })
+      })
+      }
+
+
 }
 
 export { Inbox }

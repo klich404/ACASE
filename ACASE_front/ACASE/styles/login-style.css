@@ -23,9 +23,6 @@
 body {
     background-color: var(--bg-color);
     display: flex;
-    justify-content: center;
-    align-items: cent;
-    height: 100vh;
 }
 
 div h1 {
@@ -52,7 +49,10 @@ div p {
     background-color: white;
     margin-bottom: auto;
     border-radius: 10px;
-    box-shadow: 0 5px 25px black;
+    box-shadow: 0 5px 25px white;
+    justify-content: right;
+    align-items: center;
+    margin: 0 50rem;
 }
 
 .login, .password-button {
