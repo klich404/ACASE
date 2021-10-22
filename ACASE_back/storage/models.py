@@ -17,7 +17,10 @@ class Item(models.Model):
     date                 = models.CharField(max_length=15, blank=False)
     text                 = models.TextField(blank=True)
     languaje             = models.CharField(max_length=6, choices=available_languajes, default='OTHER', blank=False) #choices choice between the objects of the list
-
+    relevance            = models.TextField(blank=True, default=None)
+    learning             = models.TextField(blank=True, default=None)
+    finding              = models.TextField(blank=True, default=None)
+    pages                = models.TextField(blank=True, default=None)
 
 class Keyword(models.Model):
     word  = models.CharField(max_length=30, blank=False)

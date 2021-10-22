@@ -11,8 +11,14 @@ def retrieve_items(request):
         json.dumps([{'id':attr.id,
                      'title':attr.title,
                      'url':attr.url,
-                     'date':attr.date.strftime('%Y-%m-%d'),
-                     'text':attr.text} for attr in list(obj)]))
+                     'date':attr.date,
+                     'source_url': attr.source_url,
+                     'Associated_KW': attr.Associated_KW,
+                     'text':attr.text,
+                     'relevance':attr.relevance,
+                     'learning':attr.learning,
+                     'finding':attr.finding,
+                     'page':attr.pages} for attr in list(obj)]))
 
 
 def keywords(request):
