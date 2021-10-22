@@ -1,10 +1,10 @@
 // Function to return keywords values to button "Palabras claves"
 function getFetchKeywords () {
   (async () => {
-    const keywords = await axios.get('http://127.0.0.1:5000/keywords');
+    const keywords = await axios.get('http://127.0.0.1:8000/keywords/');
     let listKeywords = ``
     keywords.data.forEach(element => {
-      listKeywords += `<option id="keywords-tag" value=${element}></option>`
+      listKeywords += `<option id="keywords-tag" value=${element.word}></option>`
     })
     const datalist = document.getElementById('keywords')
     datalist.innerHTML = listKeywords;
@@ -14,7 +14,7 @@ function getFetchKeywords () {
 // Function to return url values to button "URL"
 function getFetchUrl () {
   (async () => {
-    const url = await axios.get('http://127.0.0.1:5000/url');
+    const url = await axios.get('http://127.0.0.1:8000/target/');
     let urlList = ``
     url.data.forEach(element => {
       urlList += `<option value=${element}></option>`
