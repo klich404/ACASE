@@ -16,11 +16,11 @@ class Item(models.Model):
     Associated_KW        = models.CharField(max_length=30, blank=False)
     date                 = models.CharField(max_length=15, blank=False)
     text                 = models.TextField(blank=True)
-    languaje             = models.CharField(max_length=6, choices=available_languajes, default='OTHER', blank=False) #choices choice between the objects of the list
-    relevance            = models.TextField(blank=True, default=None)
-    learning             = models.TextField(blank=True, default=None)
-    finding              = models.TextField(blank=True, default=None)
-    pages                = models.TextField(blank=True, default=None)
+    languaje             = models.CharField(max_length=6, choices=available_languajes, default='OTHER', blank=True) #choices choice between the objects of the list
+    relevance            = models.TextField(null=True, blank=True, default=None)
+    learning             = models.TextField(null=True, blank=True, default=None)
+    finding              = models.TextField(null=True, blank=True, default=None)
+    pages                = models.TextField(null=True, blank=True, default=None)
 
 class Keyword(models.Model):
     word  = models.CharField(max_length=30, blank=False)
