@@ -24,11 +24,20 @@ body {
     background-color: var(--bg-color);
     display: flex;
 }
+/* WORDS */
+.container-words {
+    justify-content: center;
+    margin: 13.5rem;
+    float: left;
+    height: 8rem;
+    margin-right: 20%;
+}
 
 div h1 {
     font-family: var(--bold-family);
     color: var(--logo-color);
     margin-bottom: -10px;
+    font-size: 70px;
 }
 div span {
     font-family: var(--bold-family);
@@ -41,22 +50,36 @@ div p {
     font-size: 20px;
 }
 .login-body {
-    width: 25rem;
-    padding: 2rem;
+    width: 27rem;
+    padding: 3rem;
     text-align: center;
     margin-top: auto;
     display: block;
-    background-color: white;
     margin-bottom: auto;
     border-radius: 10px;
-    box-shadow: 0 5px 25px white;
-    justify-content: right;
+    box-shadow: 0 3px 15px white;
     align-items: center;
-    margin: 0 50rem;
+    margin-left: -3rem;
+    background-color: white;
+    color: grey;
+}
+.product-name {
+    color: var(--logo-color);
+    font-family: var(--bold-family);
+    margin-bottom: 0%;
+    font-size: 50px;
+}
+.company-name {
+    font-family: var(--bold-family);
+    color: black;
+    font-size: 21px;
+    margin-left: 90px;
+    margin-top: -3.5%;
 }
 
 .login, .password-button {
-    margin: 5px;
+    margin: 13px;
+    margin-bottom: 10px;
     width: 20rem;
     padding: 10px;
     font-family: var(--light-letter);
@@ -64,6 +87,7 @@ div p {
     color: grey;
     text-align: center;
     border-radius: 10px;
+    border-color: whitesmoke;
 }
 
 .enter-button {
@@ -88,4 +112,37 @@ div p {
     color: white;
     transition: var(--transition);
     opacity: 80;
+}
+
+.welcome-tag {
+    font-family: var(--bold-family);
+    font-size: 60px;
+    color: white;
+    margin-left: -50px;
+    
+}
+
+/* KEG */
+.row {
+    --bs-gutter-x: none;
+    width: 150%;
+    margin-top: 20px;
+    margin-left: -90px;
+
+}
+.col-one {
+    background-color: var(--logo-color);
+    height: 6px;
+}
+.col-two {
+    background-color: var(--fourth-color);
+    height: 6px;
+}
+.col-three {
+    background-color: var(--header-color);
+    height: 6px;
+}
+.col-four {
+    background-color: var(--second-color);
+    height: 6px;
 }

@@ -183,3 +183,21 @@ nav span {
     cursor: pointer;
     opacity: 90%;
 }
+
+.prompt-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    height: 100vh;
+}
+
+.prompt {
+    background-color: white;
+    position: absolute;
+    top: 90%;
+    width: 45vw;
+    height: auto;
+    transform: translate(50%, -50%);
+    border-radius: 10px;
+    justify-content: center;
+}

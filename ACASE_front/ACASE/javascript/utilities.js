@@ -17,7 +17,7 @@ function getFetchUrl () {
     const url = await axios.get('http://127.0.0.1:8000/target/');
     let urlList = ``
     url.data.forEach(element => {
-      urlList += `<option value=${element}></option>`
+      urlList += `<option value=${element.base_url}></option>`
     });
     const listUrl = document.getElementById('url-list')
     listUrl.innerHTML = urlList;
