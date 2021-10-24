@@ -1,63 +1,89 @@
 class Inbox {
-  // Get API information
+// Get API information
   getFetchApi(keyWord = null, urlValue = null) {
     (async () => {
       try {
         const response = await axios.get('http://127.0.0.1:8000/card/');
         let responseList = response.data; // All objects 10 []
-        if (keyWord) responseList = this.filterKeyword(keyWord, responseList); // Filter object 1 []
-        let cards = this.makeCards(responseList); // 10 [] o 1 [] depeding if keyword exists
-        document.getElementById('cards-container').innerHTML = cards;
-        this.showForm();
-        //this.filterUrl(urlValue, responseList);
+        // It works if with Palabra clave match with keywords
+        if (keyWord) {
+          responseList = this.filterKeyword(keyWord, responseList); // Filter object 1 []
+          let cards = this.makeCards(responseList); // 10 [] o 1 [] depeding if keyword exists
+          document.getElementById('cards-container').innerHTML = cards;
+        // It work if with Pagina Web matchs with url
+        } if (urlValue) {
+          responseList = this.filterUrl(urlValue, responseList);
+          let cards = this.makeCards(responseList);
+          document.getElementById('cards-container').innerHTML = cards;
+        // It works with Palabra clave and Pagina Web
+        } if (keyWord && url) {
+          responseList = this.filterKeyAndValue(keyWord, url, responseList);
+          let cards = this.makeCards(responseList);
+          document.getElementById('cards-container').innerHTML = cards;
+        // It works if there's not any match
+        } else {
+          let cards = this.makeCards(responseList);
+          document.getElementById('cards-container').innerHTML = cards;
+        }
+      this.showForm();
       } catch (error) {
         console.log(error);
       }
     })();
   };
 
-  // This function create the tags and give the respective values
+// This function create the tags and give the respective values
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
       htmlElements += `<div id="1175171e-0950-43e2-a881-72ca165c890d-${element.id}" class="col-lg-4 p-3">
-          <div class="card">
-          <div class="card-body p-2">
-            <h5 class="card-title mb-1">${element.title}</h5>
-            <p class="card-text mb-2"> ${element.text}
-            </p>
-            <p class="date mb-1"><b>Fecha: </b>${element.date}</p>
-            <p class="source-url mb-2"><b>Fuente:</b> ${element.url}/</p>
-            <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
-            <a data-id="1175171e-0950-43e2-a881-72ca165c890d-${element.id}" href="#" class="modify-button btn btn-primary">Modificar</a>
-            <img id="drop-button" class="trash-icon" src="./icons/trash.png" alt="trash">
-            <img id="select-button" class="check-icon" src="./icons/check-file.png" alt="check">
-          </div>
-          </div>
-        </div>`
+      <div class="card">
+      <div class="card-body p-2">
+      <h5 class="card-title mb-1">${element.title}</h5>
+      <p class="card-text mb-2"> ${element.text}
+      </p>
+      <p class="date mb-1"><b>Fecha: </b>${element.date}</p>
+      <p class="source-url mb-2"><b>Fuente:</b> ${element.url}/</p>
+      <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
+      <a data-id="1175171e-0950-43e2-a881-72ca165c890d-${element.id}" href="#" class="modify-button btn btn-primary">Modificar</a>
+      <img id="drop-button" class="trash-icon" src="./icons/trash.png" alt="trash">
+      <img id="select-button" class="check-icon" src="./icons/check-file.png" alt="check">
+      </div>
+      </div>
+      </div>`
     });
     return htmlElements
   }
-
 // This function works with the button "Palabra clave" filtering the cards with
   filterKeyword(keyWord, response) {
-    let listObject = []
+    let listObjectbyKey = []
     response.forEach(element => {
       if (element.Associated_KW === keyWord) {
-        listObject.push(element)
+        listObjectbyKey.push(element)
       }
     })
-    return listObject;
+    return listObjectbyKey;
   }
-
-/*   filterUrl(url, response) {
+// This function return the url list matched with the button Pagina web
+      filterUrl(url, response) {
+        let listObjectByUrl = []
+      response.forEach(element => {
+        if (element.source_url === url)
+          listObjectByUrl.push(element)
+      })
+        return listObjectByUrl;
+     }
+// This function return all the element matched with Palabra Clave and Pagina Web
+  filterKeyAndValue(keyWord, url, response) {
+    let listObjectKeyAndValue = []
     response.forEach(element => {
-      console.log(element.url);
-    }) 
-   }*/
-
+      if (element.source_url === url && element.Associated_KW === keyWord)
+      listObjectKeyAndValue.push(element);
+    })
+    return listObjectKeyAndValue;
+  }
 // Function to listen click of Button "Modificar" and open the form with the method createOverlay
-  showForm () {
+  showForm() {
     document.querySelectorAll('.modify-button').forEach(e => {
       e.addEventListener('click', () => {
         let form = this.createOverlay(e.getAttribute('data-id'));
@@ -79,9 +105,9 @@ class Inbox {
   }
 
 // Function to create the html content after click in button "Modificar"
-      createOverlay(dataId) {
-        let title = document.getElementById(dataId).querySelector('h5').innerText;
-        return `  <div class="container-fluid prompt-overlay">
+  createOverlay(dataId) {
+    let title = document.getElementById(dataId).querySelector('h5').innerText;
+    return `  <div class="container-fluid prompt-overlay">
     <div class="prompt">
       <h2>${title}</h2>
       <h3> </h3>
@@ -111,7 +137,7 @@ class Inbox {
       </form>
     </div>
   </div>`
-      }
+  }
 }
 
 export { Inbox }
