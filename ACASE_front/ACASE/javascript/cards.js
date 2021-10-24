@@ -107,36 +107,36 @@ class Inbox {
 // Function to create the html content after click in button "Modificar"
   createOverlay(dataId) {
     let title = document.getElementById(dataId).querySelector('h5').innerText;
-    return `  <div class="container-fluid prompt-overlay">
-    <div class="prompt">
-      <h2>${title}</h2>
-      <h3> </h3>
-      <form>
-        <div class="form-control">
-          <label for="relevant-message">¿Por qué es relevante este artículo?</label>
-          <textarea id="relevant-message" cols="60" rows="2" placeholder="Ingresa el texto" name="relevant_message" class="input-field"
-            ></textarea>
-        </div>
-        <div class="form-control">
-          <label for="relevant-learning">¿Qué vas a aprender de este artículo?</label>
-          <textarea id="relevant-learning" cols="60" rows="2" placeholder="Ingresa el texto" name="relevant_learning" class="input-field"
-            ></textarea>
-        </div>
-        <div class="form-control">
-          <label for="relevant-encounter">¿Cuál es el hallazgo más importante que vas a encontrar aquí?</label>
-          <textarea id="relevant-encounter" cols="60" rows="2" placeholder="Ingresa el texto" name="relevant_encounter" class="input-field"
-            ></textarea>
-        </div>
-        <div class="form-control">
-          <label for="pages">Página de inicio y final</label>
-          <textarea id="pages" cols="60" rows="2" placeholder="Ingresa el texto" name="pages" class="input-field"
-            ></textarea>
-        </div>
-        <button id="close-form">Cerrar</button>
-        <input type="submit" value="Enviar" id="submit-btn" class="submit-btn">
-      </form>
-    </div>
-  </div>`
+    return ` <div class="container-fluid vh-100 prompt-overlay">
+      <div class="prompt">
+        <h2 class="title-text-form">${title}</h2>
+        <form class="submit-form">
+          <div class="form-control">
+            <label class="form-questions" for="relevant-message">¿Por qué es relevante este artículo?</label>
+            <textarea id="relevant-message" cols="60" rows="2" placeholder="Ingresa el texto" name="relevant_message"
+              class="input-field"></textarea>
+          </div>
+          <div class="form-control">
+            <label class="form-questions" for="relevant-learning">¿Qué vas a aprender de este artículo?</label>
+            <textarea id="relevant-learning" cols="60" rows="2" placeholder="Ingresa el texto" name="relevant_learning"
+              class="input-field"></textarea>
+          </div>
+          <div class="form-control">
+            <label class="form-questions" for="relevant-encounter">¿Cuál es el hallazgo más importante que vas a
+              encontrar aquí?</label>
+            <textarea id="relevant-encounter" cols="60" rows="2" placeholder="Ingresa el texto"
+              name="relevant_encounter" class="input-field"></textarea>
+          </div>
+          <div class="form-control">
+            <label class="form-questions" for="pages">Página de inicio y final</label>
+            <textarea id="pages" cols="60" rows="2" placeholder="Ingresa el texto" name="pages"
+              class="input-field"></textarea>
+          </div>
+          <button id="close-form">Cerrar</button>
+          <input type="submit" value="Enviar" id="submit-btn" class="submit-btn">
+        </form>
+      </div>
+    </div>`
   }
 }
 

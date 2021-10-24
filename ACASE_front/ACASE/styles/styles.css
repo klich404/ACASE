@@ -22,14 +22,14 @@
 
 body {
     background-color: #05137a;
+    height: auto;
 }
 
 /* PRINCIPAL CONTAINER */
 #principal-container {
-    height: 100vh;
-    padding: 0;
+    height: 100%;
+    padding: 0%;
     background-color: var(--bg-color);
-    margin-bottom: 100vh;
 }
 
 /* HEADER */
@@ -66,7 +66,6 @@ nav span {
 }
 
 /* KEG COLORS */
-
 .row {
     --bs-gutter-x: none;
 }
@@ -102,22 +101,20 @@ nav span {
     font-size: 20px;
     color: grey;
 }
-
 .container-searching .btn {
     height: 2.5rem;
-    width: 10rem;
+    width: 9.5rem;
     border-radius: 10px;
     background-color: var(--header-color);
     text-align: center;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     font-family: var(--bold-family);
     font-weight: 100px;
     border: 1px solid var(--header-color);
     transition: var(--transition);
     opacity: 90%;
 }
-
 .btn:hover {
     color: white;
     transition: var(--transition);
@@ -125,7 +122,6 @@ nav span {
 }
 
 /* CARDS STYLE */
-
 .card {
     text-align: justify;
     width: 23.5rem;
@@ -135,7 +131,6 @@ nav span {
     justify-content: space-between;
     border-radius: 12px;
 }
-
 .card-title {
     font-family: var(--bold-medium);
     font-size: 16px;
@@ -184,20 +179,51 @@ nav span {
     opacity: 90%;
 }
 
+/* FORM PROPERTIES */
 .prompt-overlay {
     background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
+    position: fixed;
+    height: auto;
     top: 0;
-    height: 100vh;
 }
-
 .prompt {
     background-color: white;
     position: absolute;
-    top: 90%;
-    width: 45vw;
-    height: auto;
+    top: 50%;
+    width: 50vw;
     transform: translate(50%, -50%);
     border-radius: 10px;
     justify-content: center;
+}
+.title-text-form {
+    font-family: var(--bold-family);
+    margin: 5px 0 5px 10px;
+    font-size: 25px;
+    margin: 15px;
+}
+.input-field {
+    font-family: var(--light-letter);
+    font-size: 17px;
+    border-radius: 5px;
+    color: grey;
+}
+.form-questions {
+    font-family: var(--bold-medium);
+    color: black;
+    margin: 2px;
+}
+
+#submit-btn, #close-form {
+    width: 80px;
+    height: 25px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    font-family: var(--bold-medium);
+    justify-content: center;
+    align-items: center;
+    font-size: 12.5px;
+    margin-top: 3px;
+    border-radius: 8px;
+    color: white;
+    margin: 4px 0 4px 4px;
 }
