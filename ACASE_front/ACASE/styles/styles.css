@@ -125,15 +125,17 @@ nav span {
 .card {
     text-align: justify;
     width: 23.5rem;
-    height: auto;
+    height: 220px;
     display: flexbox;
     border: 1px solid black;
     justify-content: space-between;
     border-radius: 12px;
+    box-shadow: 0 2.5px 5px white;
 }
 .card-title {
+    margin: 3px;
     font-family: var(--bold-medium);
-    font-size: 16px;
+    font-size: 15px;
 }
 .date, .source-url {
     font-size: 11px;
@@ -151,12 +153,13 @@ nav span {
     background-color: var(--bg-color);
     border: 1px solid var(--bg-color);
     font-family: var(--bold-medium);
-    justify-content: center;
     align-items: center;
     font-size: 12.5px;
-    margin-top: 3px;
+    margin-top: 2px;
     margin-left: 2.5px;
     border-radius: 8px;
+    justify-content: center;
+    bottom: 0%;
 }
 
 /* ICONS */
@@ -178,8 +181,11 @@ nav span {
     cursor: pointer;
     opacity: 90%;
 }
-
+.cards-buttons {
+    margin: 15px 0 1px 1px;
+}
 /* FORM PROPERTIES */
+
 .prompt-overlay {
     background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
