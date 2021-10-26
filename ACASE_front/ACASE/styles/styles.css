@@ -21,48 +21,47 @@
 }
 
 body {
-    background-color: #05137a;
-    height: auto;
+    height: 100vh;
+    background-color: var(--bg-color);
 }
 
 /* PRINCIPAL CONTAINER */
 #principal-container {
-    height: 100%;
+    height: 100%;   
     padding: 0%;
-    background-color: var(--bg-color);
 }
 
 /* HEADER */
 .navbar {
-    background-color: var(--header-color);
     height: 70px;
     width: 100%;
+    background-color: var(--header-color);
+    box-shadow: white 1px 0.5px;
 }
 nav h1 {
     color: var(--logo-color);
     font-family: var(--bold-family);
-    font-size: 35px;
+    font-size: 40px;
     margin-top: 1.5rem;
 }
 nav span {
     color: white;
     font-family: var(--bold-family);
-    font-size: 20px;
-    margin: 49px;
+    font-size: 21px;
+    margin: 50px;
     position: relative;
-    bottom: 19px;
+    bottom: 23px;
+    margin-left: 60px;
 }
 .nav-link {
     font-family: var(--bold-medium);
-    color: black;
+    color: white;
     font-weight: bold;
     transition: var(--transition);
-    opacity: 90%;
+    margin-left: 15px;
 }
 .nav-link:hover {
     color: black;
-    border-bottom: 1.5px solid black;
-    border-bottom-width: 2px;
 }
 
 /* KEG COLORS */
@@ -70,20 +69,20 @@ nav span {
     --bs-gutter-x: none;
 }
 .col-one {
-    background-color: var(--logo-color);
-    height: 23.5px;
+    background: var(--logo-color);
+    height: 15px;
 }
 .col-two {
     background-color: var(--fourth-color);
-    height: 23.5px;
+    height: 15px;
 }
 .col-three {
     background-color: white;
-    height: 23.5px;
+    height: 15px;
 }
 .col-four {
     background-color: var(--second-color);
-    height: 23.5px;
+    height: 15px;
 }
 
 /* SEARCHING TOOLS */
@@ -100,37 +99,45 @@ nav span {
     font-family: var(--light-letter);
     font-size: 20px;
     color: grey;
+    box-shadow: 0 1px 1.5px white;
 }
 .container-searching .btn {
     height: 2.5rem;
     width: 9.5rem;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(white)), to(var(--header-color));
+    background: -moz-linear-gradient(white), var(--header-color);
+    background: linear-gradient(white, var(--header-color));
     border-radius: 10px;
     background-color: var(--header-color);
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     font-family: var(--bold-family);
-    font-weight: 100px;
+    font-weight: 150px;
     border: 1px solid var(--header-color);
-    transition: var(--transition);
-    opacity: 90%;
+    transition: var(--transition)
 }
-.btn:hover {
-    color: white;
-    transition: var(--transition);
-    opacity: 80;
+.container-searching .btn:active {
+    background: var(--header-color);
+    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--header-color))), to(white);
+    background: -moz-linear-gradient(var(--header-color), var(white));
+    background: linear-gradient(var(--header-color), white);
 }
 
 /* CARDS STYLE */
 .card {
     text-align: justify;
-    width: 23.5rem;
-    height: 220px;
+    width: 23rem;
+    height: 228px;
     display: flexbox;
     border: 1px solid black;
     justify-content: space-between;
-    border-radius: 12px;
     box-shadow: 0 2.5px 5px white;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .card-title {
     margin: 3px;
@@ -148,34 +155,42 @@ nav span {
     font-family: var(--light-letter);
 }
 .btn {
-    width: 80px;
-    height: 25px;
-    background-color: var(--bg-color);
-    border: 1px solid var(--bg-color);
-    font-family: var(--bold-medium);
-    align-items: center;
-    font-size: 12.5px;
-    margin-top: 2px;
-    margin-left: 2.5px;
-    border-radius: 8px;
-    justify-content: center;
-    bottom: 0%;
+    width: 5.5rem;
+    height: 1.7rem;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
+    background: -moz-linear-gradient(var(--header-color), var(--bg-color));
+    background: linear-gradient(var(--header-color), var(--bg-color));
+    border-radius: 10px;
+    background-color: var(--header-color);
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    font-family: var(--bold-family);
+    font-weight: 100px;
+    border: 1px solid var(--header-color);
+    transition: var(--transition);
+}
+.btn:active {
+    background: var(--header-color);
+    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
+    background: -moz-linear-gradient(var(--bg-color), var(--header-color));
+    background: linear-gradient(var(--bg-color), var(--header-color));
 }
 
 /* ICONS */
 .trash-icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     float: right;
     display: flex;
-    margin: 1px;
+    margin: 2px 3px;
 }
 .check-icon {
-    width: 24px;
-    height: 27px;
+    width: 25px;
+    height: 25px;
     float: right;
     display: flex;
-    margin: 2px -1px;
+    margin: 2px -3px;
 }
 .check-icon:hover, .trash-icon:hover {
     cursor: pointer;
@@ -220,16 +235,29 @@ nav span {
 }
 
 #submit-btn, #close-form {
-    width: 80px;
-    height: 25px;
-    background-color: var(--bg-color);
-    border: 1px solid var(--bg-color);
-    font-family: var(--bold-medium);
-    justify-content: center;
-    align-items: center;
-    font-size: 12.5px;
-    margin-top: 3px;
-    border-radius: 8px;
+    width: 5rem;
+    height: 1.5rem;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
+    background: -moz-linear-gradient(var(--header-color), var(--bg-color));
+    background: linear-gradient(var(--header-color), var(--bg-color));
+    border-radius: 10px;
+    background-color: var(--header-color);
+    text-align: center;
     color: white;
-    margin: 4px 0 4px 4px;
+    font-size: 11px;
+    font-family: var(--bold-family);
+    font-weight: 100px;
+    border: 1px solid var(--header-color);
+    transition: var(--transition);
+    margin: 4px 5px 5px; 
+}
+#submit-btn:active, #close-form:active  {
+    background: var(--header-color);
+    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
+    background: -moz-linear-gradient(var(--bg-color), var(--header-color));
+    background: linear-gradient(var(--bg-color), var(--header-color));
+}
+
+.form-control {
+    border: none;
 }

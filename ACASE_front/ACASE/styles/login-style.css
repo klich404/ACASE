@@ -23,11 +23,12 @@
 body {
     background-color: var(--bg-color);
     display: flex;
+    height: 100vh;
 }
 /* WORDS */
 .container-words {
     justify-content: center;
-    margin: 13.5rem;
+    margin: 13.5rem;    
     float: left;
     height: 8rem;
     margin-right: 20%;
@@ -35,7 +36,7 @@ body {
 
 div h1 {
     font-family: var(--bold-family);
-    color: var(--logo-color);
+    color: var(--fourth-color);
     margin-bottom: -10px;
     font-size: 70px;
 }
@@ -97,21 +98,24 @@ div p {
     height: 2.5rem;
     width: 10rem;
     border-radius: 10px;
-    background-color: var(--bg-color);
+    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
+    background: -moz-linear-gradient(var(--header-color), var(--bg-color));
+    background: linear-gradient(var(--header-color), var(--bg-color));
+    border-radius: 10px;
+    background-color: var(--header-color);
     text-align: center;
     color: white;
-    font-family: var(--bold-family);
-    border: 1px solid var(--bg-color);
-    transition: var(--transition);
-    opacity: 90%;
-    text-align: center;
     font-size: 20px;
-}
-
-.enter-button:hover {
-    color: white;
+    font-family: var(--bold-family);
+    font-weight: 100px;
+    border: 1px solid var(--header-color);
     transition: var(--transition);
-    opacity: 80;
+}
+.enter-button:active {
+    background: var(--header-color);
+    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
+    background: -moz-linear-gradient(var(--bg-color), var(--header-color));
+    background: linear-gradient(var(--bg-color), var(--header-color));
 }
 
 .welcome-tag {

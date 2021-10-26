@@ -5,6 +5,11 @@ class Inbox {
       try {
         const response = await axios.get('http://127.0.0.1:8000/card/');
         let responseList = response.data; // All objects 10 []
+        let entireList = []
+        entireList.forEach(e => {
+          if (e.My_selection == false && e.Trash_section == false)
+          responseList.push(e)
+        })
         // It works if with Palabra clave match with keywords
         if (keyWord) {
           responseList = this.filterKeyword(keyWord, responseList); // Filter object 1 []
@@ -26,6 +31,7 @@ class Inbox {
           document.getElementById('cards-container').innerHTML = cards;
         }
       this.showForm();
+      this.toMySelection();
       } catch (error) {
         console.log(error);
       }
@@ -35,30 +41,54 @@ class Inbox {
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
-      htmlElements += `<div id="1175171e-0950-43e2-a881-72ca165c890d-${element.id}" class="col-lg-4 p-3">
+      htmlElements += `<div id="${element.id}" class="col-lg-4 p-3">
       <div class="card">
       <div class="card-body p-2">
+      <div>
       <h5 class="card-title mb-1">${element.title}</h5>
       <p class="card-text mb-2"> ${this.truncateText(element.text)}
       </p>
       <p class="date mb-1"><b>Fecha: </b>${element.date}</p>
-      <p class="source-url mb-2"><b>Fuente:</b> ${element.url}/</p> 
+      <p class="source-url mb-2"><b>Fuente:</b> ${element.url}/</p>
+      </div>
+      <div>
       <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
-      <a data-id="1175171e-0950-43e2-a881-72ca165c890d-${element.id}" href="#" class="modify-button btn btn-primary">Modificar</a>
-      <img id="drop-button" class="trash-icon" src="./icons/trash.png" alt="trash">
-      <img id="select-button" class="check-icon" src="./icons/check-file.png" alt="check">
+      <a data-id="${element.id}" href="#" class="modify-button btn btn-primary">Modificar</a>
+      <img id="${element.id}" class="trash-icon" src="./icons/not-save.png" alt="trash">
+      <img id="${element.id}" class="check-icon" src="./icons/save.png" alt="check">
+      </div>
       </div>
       </div>
       </div>`
     });
     return htmlElements
   }
-  truncateText (text, limit = 200) {
+  truncateText (text, limit = 180) {
     return (text.length <= limit)
       ? text
       : text.slice(0, limit) + "..."
   }
-
+  toMySelection () {
+    document.querySelectorAll('.check-icon').forEach(e => {
+      e.addEventListener('click', () => {
+        let paidLoad = {}
+        paidLoad['id'] = e.getAttribute('id')
+        paidLoad['My_selection'] = true;
+        (async () => {
+          try { 
+            const response = await axios.post('http://127.0.0.1:8000/my_selection', {
+              id:  e.getAttribute('id'),
+              My_selection: true
+            })
+          } catch (error) {
+            console.error(error);
+          }
+          alert('Tu carta se ha enviado a Selección')
+          document.getElementById(e.getAttribute('id')).remove()
+        })();
+      })
+  })
+}
 // This function works with the button "Palabra clave" filtering the cards with
   filterKeyword(keyWord, response) {
     let listObjectbyKey = []
@@ -145,8 +175,6 @@ class Inbox {
       document.getElementById(dataId).remove();
     });
   }
-
-
 }
 
 export { Inbox }
