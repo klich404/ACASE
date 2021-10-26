@@ -38,7 +38,7 @@ def target(request):
 def update(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = (json-loads(request.POST['relevance']))
+        data['id'] = (json.loads(request.POST['relevance']))
         data['relevance'] = (json.loads(request.POST['relevance']))
         data['learning'] = (json.loads(request.POST['learning']))
         data['finding'] = (json.loads(request.POST['finding']))
