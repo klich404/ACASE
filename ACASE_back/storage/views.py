@@ -38,11 +38,11 @@ def target(request):
 def update(request):
     if request.method == 'POST':
         data = {}
-        data.append(json.loads(request.POST['id']))
-        data.append(json.loads(request.POST['relevance']))
-        data.append(json.loads(request.POST['learning']))
-        data.append(json.loads(request.POST['finding']))
-        data.append(json.loads(request.POST['pages']))
+        data['id'] = (json-loads(request.POST['relevance']))
+        data['relevance'] = (json.loads(request.POST['relevance']))
+        data['learning'] = (json.loads(request.POST['learning']))
+        data['finding'] = (json.loads(request.POST['finding']))
+        data['pages'] = (json.loads(request.POST['pages']))
         for item in data:
             for key, value in item.items():
                 if key == 'id':
