@@ -32,3 +32,20 @@ def target(request):
     return HttpResponse(
         json.dumps([{'name':attr.name,
                      'base_url':attr.base_url} for attr in list(obj)]))
+
+
+def update(request):
+    if request.method == 'POST':
+        data = {}
+        data.append(json.loads(request.POST['id']))
+        data.append(json.loads(request.POST['relevance']))
+        data.append(json.loads(request.POST['learning']))
+        data.append(json.loads(request.POST['finding']))
+        data.append(json.loads(request.POST['pages']))
+        for item in data:
+            for key, value in item.items():
+                if key == 'id':
+                    id_num = value
+            obj = Item.objects.filter(id=id_num).update(**item)
+        return HttpResponce('melo caramelo')
+    return HttpResponce('todo mal')
