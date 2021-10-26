@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from storage.models import Item, Keyword, Target
+from django.views.decorators.csrf import csrf_exempt
 import pdb
 import json
 
@@ -33,7 +34,7 @@ def target(request):
         json.dumps([{'name':attr.name,
                      'base_url':attr.base_url} for attr in list(obj)]))
 
-
+@csrf_exempt
 def update(request):
     if request.method == 'POST':
         data = {}
