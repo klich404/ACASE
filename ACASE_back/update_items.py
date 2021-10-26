@@ -12,27 +12,7 @@ with open("update.json", "r") as data:
     data = json.load(data)
 
     for item in data:
-        for key, value in item.values():
-            obj = Item.objects.get(**{ key= value })
-            print(obj)
-
-
-
-"""
-    objs = Item.objects.all()
-    objs = json.dumps([{'id':attr.id,
-                        'title':attr.title,
-                        'url':attr.url,
-                        'date':attr.date,
-                        'source_url': attr.source_url,
-                        'Associated_KW': attr.Associated_KW,
-                        'text':attr.text,
-                        'relevance':attr.relevance,
-                        'learning':attr.learning,
-                        'finding':attr.finding,
-                        'page':attr.pages} for attr in list(objs)])
-
-    objs = json.loads(objs)
-    for obj in objs:
-        if str(obj['id']) == str(item['id']):
-"""
+        for key, value in item.items():
+            if key == 'id':
+                id_num = value
+        obj = Item.objects.filter(id=id_num).update(**item)
