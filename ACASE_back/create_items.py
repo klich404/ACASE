@@ -8,8 +8,13 @@ django.setup()
 
 from storage.models import Item
 
-with open("data.json", "r") as data:
+with open("test.json", "r") as data:
     data = json.load(data)
 
     for element in data:
-        Item.objects.create(**element)
+        for key, value in element.items():
+            if key == 'url':
+                if Item.objects.filter(url=value).count() >= 1:
+                    pass
+                else:
+                    Item.objects.create(**element)
