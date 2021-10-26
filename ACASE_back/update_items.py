@@ -12,9 +12,13 @@ with open("update.json", "r") as data:
     data = json.load(data)
 
     for item in data:
-        for key, value in item.items():
-            print(key, value)
+        for key, value in item.values():
+            obj = Item.objects.get(**{ key= value })
+            print(obj)
 
+
+
+"""
     objs = Item.objects.all()
     objs = json.dumps([{'id':attr.id,
                         'title':attr.title,
@@ -27,5 +31,8 @@ with open("update.json", "r") as data:
                         'learning':attr.learning,
                         'finding':attr.finding,
                         'page':attr.pages} for attr in list(objs)])
-    print(objs)
-    
+
+    objs = json.loads(objs)
+    for obj in objs:
+        if str(obj['id']) == str(item['id']):
+"""
