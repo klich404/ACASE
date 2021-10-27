@@ -70,19 +70,19 @@ nav span {
 }
 .col-one {
     background: var(--logo-color);
-    height: 15px;
+    height: 20px;
 }
 .col-two {
-    background-color: var(--fourth-color);
-    height: 15px;
+    background-color: var(--first-color);
+    height: 20px;
 }
 .col-three {
-    background-color: white;
-    height: 15px;
+    background-color: var(--second-color);
+    height: 20px;
 }
 .col-four {
-    background-color: var(--second-color);
-    height: 15px;
+    background-color: var(--bg-color);
+    height: 20px;
 }
 
 /* SEARCHING TOOLS */
@@ -103,32 +103,30 @@ nav span {
 }
 .container-searching .btn {
     height: 2.5rem;
-    width: 9.5rem;
-    background: -webkit-gradient(linear, 0 0, 0 0, from(white)), to(var(--header-color));
-    background: -moz-linear-gradient(white), var(--header-color);
-    background: linear-gradient(white, var(--header-color));
+    width: 10rem;
     border-radius: 10px;
     background-color: var(--header-color);
     text-align: center;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-family: var(--bold-family);
-    font-weight: 150px;
+    font-weight: 100px;
     border: 1px solid var(--header-color);
-    transition: var(--transition)
+    transition: var(--transition);
+    opacity: 90%;
 }
-.container-searching .btn:active {
-    background: var(--header-color);
-    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--header-color))), to(white);
-    background: -moz-linear-gradient(var(--header-color), var(white));
-    background: linear-gradient(var(--header-color), white);
+
+.btn:hover {
+    color: white;
+    transition: var(--transition);
+    opacity: 80;
 }
 
 /* CARDS STYLE */
 .card {
     text-align: justify;
     width: 23rem;
-    height: 228px;
+    height: 230px;
     display: flexbox;
     border: 1px solid black;
     justify-content: space-between;
@@ -145,52 +143,44 @@ nav span {
     font-size: 15px;
 }
 .date, .source-url {
+    margin: 3px;
     font-size: 11px;
     color:gray;
     font-family: var(--light-letter);
     text-align: justify;
 }
 .card-text {
+    margin: 3px;
     font-size: 12.6px;
     font-family: var(--light-letter);
 }
 .btn {
-    width: 5.5rem;
-    height: 1.7rem;
-    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
-    background: -moz-linear-gradient(var(--header-color), var(--bg-color));
-    background: linear-gradient(var(--header-color), var(--bg-color));
-    border-radius: 10px;
-    background-color: var(--header-color);
-    text-align: center;
-    color: white;
-    font-size: 11px;
-    font-family: var(--bold-family);
-    font-weight: 100px;
-    border: 1px solid var(--header-color);
-    transition: var(--transition);
-}
-.btn:active {
-    background: var(--header-color);
-    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
-    background: -moz-linear-gradient(var(--bg-color), var(--header-color));
-    background: linear-gradient(var(--bg-color), var(--header-color));
+    width: 80px;
+    height: 25px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    font-family: var(--bold-medium);
+    justify-content: center;
+    align-items: center;
+    font-size: 12.5px;
+    margin-top: 3px;
+    margin-left: 2.5px;
 }
 
 /* ICONS */
 .trash-icon {
-    width: 25px;
-    height: 25px;
+    width: 29.5px;
+    height: 26.5px;
     float: right;
     display: flex;
-    margin: 2px 3px;
+    margin: 2px 5px;
 }
 .check-icon {
-    width: 25px;
+    width: 24px;
     height: 25px;
     float: right;
     display: flex;
-    margin: 2px -3px;
+    margin: 2px 1.2px;
 }
 .check-icon:hover, .trash-icon:hover {
     cursor: pointer;
@@ -235,27 +225,17 @@ nav span {
 }
 
 #submit-btn, #close-form {
-    width: 5rem;
-    height: 1.5rem;
-    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
-    background: -moz-linear-gradient(var(--header-color), var(--bg-color));
-    background: linear-gradient(var(--header-color), var(--bg-color));
-    border-radius: 10px;
-    background-color: var(--header-color);
-    text-align: center;
+    width: 80px;
+    height: 25px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    font-family: var(--bold-medium);
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 12.5px;
     color: white;
-    font-size: 11px;
-    font-family: var(--bold-family);
-    font-weight: 100px;
-    border: 1px solid var(--header-color);
-    transition: var(--transition);
-    margin: 4px 5px 5px; 
-}
-#submit-btn:active, #close-form:active  {
-    background: var(--header-color);
-    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
-    background: -moz-linear-gradient(var(--bg-color), var(--header-color));
-    background: linear-gradient(var(--bg-color), var(--header-color));
+    margin: 5px;
 }
 
 .form-control {

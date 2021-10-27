@@ -57,7 +57,7 @@ div p {
     margin-top: auto;
     display: block;
     margin-bottom: auto;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 3px 15px white;
     align-items: center;
     margin-left: -3rem;
@@ -98,24 +98,21 @@ div p {
     height: 2.5rem;
     width: 10rem;
     border-radius: 10px;
-    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
-    background: -moz-linear-gradient(var(--header-color), var(--bg-color));
-    background: linear-gradient(var(--header-color), var(--bg-color));
-    border-radius: 10px;
-    background-color: var(--header-color);
+    background-color: var(--bg-color);
     text-align: center;
     color: white;
-    font-size: 20px;
     font-family: var(--bold-family);
-    font-weight: 100px;
-    border: 1px solid var(--header-color);
+    border: 1px solid var(--bg-color);
     transition: var(--transition);
+    opacity: 90%;
+    text-align: center;
+    font-size: 20px;
 }
-.enter-button:active {
-    background: var(--header-color);
-    background: -webkit-gradient(linear, 0 0, 0 0, from(var(--bg-color))), to(var(--header-color));
-    background: -moz-linear-gradient(var(--bg-color), var(--header-color));
-    background: linear-gradient(var(--bg-color), var(--header-color));
+
+.enter-button:hover {
+    color: white;
+    transition: var(--transition);
+    opacity: 80;
 }
 
 .welcome-tag {

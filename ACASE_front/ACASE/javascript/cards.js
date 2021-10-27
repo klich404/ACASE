@@ -5,11 +5,11 @@ class Inbox {
       try {
         const response = await axios.get('http://127.0.0.1:8000/card/');
         let responseList = response.data; // All objects 10 []
-        let entireList = []
-        entireList.forEach(e => {
-          if (e.My_selection == false && e.Trash_section == false)
+        //let = responseList = []
+/*         entireList.forEach(e => {
+        if (e.My_selection == false && e.Trash_section == false)
           responseList.push(e)
-        })
+        }) */
         // It works if with Palabra clave match with keywords
         if (keyWord) {
           responseList = this.filterKeyword(keyWord, responseList); // Filter object 1 []
@@ -54,8 +54,8 @@ class Inbox {
       <div>
       <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
       <a data-id="${element.id}" href="#" class="modify-button btn btn-primary">Modificar</a>
-      <img id="${element.id}" class="trash-icon" src="./icons/not-save.png" alt="trash">
-      <img id="${element.id}" class="check-icon" src="./icons/save.png" alt="check">
+      <img id="${element.id}" class="trash-icon" src="./icons/delete_file.png" alt="trash">
+      <img id="${element.id}" class="check-icon" src="./icons/save_file.png" alt="check">
       </div>
       </div>
       </div>
@@ -76,7 +76,7 @@ class Inbox {
         paidLoad['My_selection'] = true;
         (async () => {
           try { 
-            const response = await axios.post('http://127.0.0.1:8000/my_selection', {
+            const response = await axios.post('http://127.0.0.1:8000/my_selection/', {
               id:  e.getAttribute('id'),
               My_selection: true
             })
