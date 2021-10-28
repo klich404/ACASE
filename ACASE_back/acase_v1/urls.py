@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from storage.views import retrieve_items, keywords, target, update
+from storage.views import retrieve_items, keywords, target, update, to_my_selection, to_trash_section
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,6 @@ urlpatterns = [
     path('keywords/', keywords),
     path('target/', target),
     path('form/', update),
+    path("to_my_selection/", to_my_selection),
+    path("to_trash_section/", to_trash_section),
 ]

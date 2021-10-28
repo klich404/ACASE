@@ -38,11 +38,39 @@ def target(request):
 def update(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = (json.loads(request.POST['relevance']))
-        data['relevance'] = (json.loads(request.POST['relevance']))
-        data['learning'] = (json.loads(request.POST['learning']))
-        data['finding'] = (json.loads(request.POST['finding']))
-        data['pages'] = (json.loads(request.POST['pages']))
+        data['id'] = request.POST['id']
+        data['relevance'] = request.POST['relevance']
+        data['learning'] = request.POST['learning']
+        data['finding'] = request.POST['finding']
+        data['pages'] = request.POST['pages']
+        print(data)
+        for item in data:
+            for key, value in item.items():
+                if key == 'id':
+                    id_num = value
+            obj = Item.objects.filter(id=id_num).update(**item)
+        return HttpResponce('melo caramelo')
+    return HttpResponce('todo mal')
+
+
+def to_my_selection(request):
+    if request.method == 'POST':
+        data = {}
+        data['id'] = request.POST['id']
+        data['My_selection'] = request.POST['My_selection']
+        for item in data:
+            for key, value in item.items():
+                if key == 'id':
+                    id_num = value
+            obj = Item.objects.filter(id=id_num).update(**item)
+        return HttpResponce('melo caramelo')
+    return HttpResponce('todo mal')
+
+def to_trash_section(request):
+    if request.method == 'POST':
+        data = {}
+        data['id'] = request.POST['id']
+        data['Trash_selection'] = request.POST['Trash_selection']
         for item in data:
             for key, value in item.items():
                 if key == 'id':

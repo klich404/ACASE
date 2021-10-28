@@ -17,6 +17,8 @@ class Item(models.Model):
     date                 = models.CharField(max_length=15, blank=False)
     text                 = models.TextField(blank=True)
     languaje             = models.CharField(max_length=6, choices=available_languajes, default='OTHER', blank=True) #choices choice between the objects of the list
+    My_selection         = models.BooleanField(default=False)
+    Trash_section        = models.BooleanField(default=False)
     relevance            = models.TextField(null=True, blank=True, default=None)
     learning             = models.TextField(null=True, blank=True, default=None)
     finding              = models.TextField(null=True, blank=True, default=None)
