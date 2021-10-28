@@ -42,21 +42,21 @@ class Inbox {
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
-      htmlElements += `<div id="${element.Id}" class="col-lg-4 p-3">
+      htmlElements += `<div id="${element.Id}" class="col-4 p-3">
       <div class="card">
-      <div class="card-body p-2">
+      <div class="card-body">
       <div>
-      <h5 class="card-title mb-1">${element.Title}</h5>
+      <h3 class="card-title mb-2">${this.truncateTitle(element.Title)}</h3>
       <p class="card-text mb-2"> ${this.truncateText(element.Text)}
       </p>
-      <p class="date mb-1"><b>Fecha: </b>${element.Date}</p>
-      <p class="source-url mb-2"><b>Fuente:</b> ${element.Url}/</p>
       </div>
       <div>
+      <p class="date mb-1"><b>Fecha: </b>${element.Date}</p>
+      <p class="source-url mb-2"><b>Fuente:</b> ${this.truncateUrl(element.Url)}/</p>
       <a href="${element.Url}" target="_blank" class="btn btn-primary">Visitar</a>
       <a data-id="${element.Id}" href="#" class="modify-button btn btn-primary">Modificar</a>
-      <img id="${element.Id}" class="trash-icon" src="./icons/delete_file.png" alt="trash">
-      <img id="${element.Id}" class="check-icon" src="./icons/save_file.png" alt="check">
+      <img id="${element.Id}" class="trash-icon" src="./icons/trash-can.png" alt="trash">
+      <img id="${element.Id}" class="check-icon" src="./icons/approved.png" alt="check">
       </div>
       </div>
       </div>
@@ -64,12 +64,24 @@ class Inbox {
     });
     return htmlElements
   }
+// Truncate Title
+  truncateTitle(text, limit = 90) {
+    return (text.length <= limit)
+      ? text
+      : text.slice(0, limit) + "..."
+  }
 // Truncate the text with 180 words 
   truncateText (text, limit = 180) {
     return (text.length <= limit)
       ? text
       : text.slice(0, limit) + "..."
 }
+// Truncate the text with 180 words 
+  truncateUrl(text, limit = 90) {
+    return (text.length <= limit)
+      ? text
+      : text.slice(0, limit) + "..."
+  }
 // This function works with the button "Palabra clave" filtering the cards with
   filterKeyword(keyWord, response) {
     let listObjectbyKey = []

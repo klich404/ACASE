@@ -6,7 +6,7 @@
 @import url(//db.onlinewebfonts.com/c/116af611cbcd9e4bada60b4e700430c1?family=Avenir+Light);
 /* VARIABLES */
 
-:root {
+/* :root {
     --bold-family: "Avenir Heavy", sans-serif;
     --bold-medium: "Avenir Medium", sans-serif;
     --light-letter: "Avenir Light", sans-serif;
@@ -17,6 +17,22 @@
     --second-color: #ef7a2e;
     --third-color: #7ccd9a;
     --fourth-color: #e3558f;
+    --transition: 0.15s;
+} */
+:root {
+    --bold-family: "Avenir Heavy", sans-serif;
+    --bold-medium: "Avenir Medium", sans-serif;
+    --light-letter: "Avenir Light", sans-serif;
+    --bg-color: #1F1F1F;
+    --grey-dark: #363636;
+    --grey--light: #909090;
+    --title-color: #fff;
+    --paragraph-color : #eaeaea;
+    --header-color: #6ac8f8;
+    --logo-color: #6832d9;
+    --first-color: #f6c843;
+    --second-color: #ef7a2e;
+    --third-color: #7ccd9a;
     --transition: 0.15s;
 }
 
@@ -102,8 +118,6 @@ nav span {
     font-style: italic;
     font-size: 17px;
     padding-left: 15px;
-    color: grey;
-    box-shadow: 0 1px 1.5px white;
     border: none;
 }
 .container-searching .btn {
@@ -128,21 +142,23 @@ nav span {
 .card {
     text-align: justify;
     width: 23rem;
-    height: 230px;
+    height: 270px;
     display: flexbox;
-    border: 1px solid black;
     justify-content: space-between;
-    box-shadow: 0 2.5px 5px white;
+    box-shadow: -2px 2px 6px #111;
+    background-color: var(--grey-dark);
 }
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 14px 16px 10px 14px;
 }
 .card-title {
     margin: 3px;
-    font-family: var(--bold-medium);
-    font-size: 15px;
+    font-family: var(--bold-family);
+    font-size: 16px;
+    color: white;
 }
 .date, .source-url {
     margin: 3px;
@@ -155,10 +171,10 @@ nav span {
     margin: 3px;
     font-size: 12.6px;
     font-family: var(--light-letter);
+    color: white;
 }
 .btn {
     width: 80px;
-    height: 25px;
     background-color: var(--bg-color);
     border: 1px solid var(--bg-color);
     font-family: var(--bold-medium);
@@ -172,14 +188,14 @@ nav span {
 /* ICONS */
 .trash-icon {
     width: 30px;
-    height: 27px;
+    height: 30px;
     float: right;
     display: flex;
     margin: 2px 5px;
 }
 .check-icon {
-    width: 25px;
-    height: 26.5px;
+    width: 30px;
+    height: 30px;
     float: right;
     display: flex;
     margin: 2px 1.2px;
@@ -266,4 +282,18 @@ nav span {
     margin: 20px;
     margin-right: 10px;
     cursor: pointer;
+}
+
+#search-button {
+    border-radius: 0;
+    margin: 0;
+    text-shadow: -1px 1px 2px rgba(0,0,0,0.5);
+}
+
+#keywords-input, #url-input {
+    background-color: var(--grey--light);
+}
+
+.filter-input::placeholder {
+    color: var(--paragraph-color);
 }
