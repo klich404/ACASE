@@ -9,48 +9,48 @@ import json
 def retrieve_items(request):
     obj = list(Item.objects.all())
     return HttpResponse(
-        json.dumps([{'id':attr.id,
-                     'title':attr.title,
-                     'url':attr.url,
-                     'date':attr.date,
-                     'source_url': attr.source_url,
+        json.dumps([{'Id':attr.Id,
+                     'Title':attr.Title,
+                     'Url':attr.Url,
+                     'Date':attr.Date,
+                     'Source_url': attr.Source_url,
                      'Associated_KW': attr.Associated_KW,
-                     'text':attr.text,
+                     'Text':attr.Text,
                      'My_selection': attr.My_selection,
                      'Trash_section': attr.Trash_section,
-                     'relevance':attr.relevance,
-                     'learning':attr.learning,
-                     'finding':attr.finding,
-                     'page':attr.pages} for attr in list(obj)]))
+                     'Relevance':attr.Relevance,
+                     'Learning':attr.Learning,
+                     'Finding':attr.Finding,
+                     'Page':attr.Pages} for attr in list(obj)]))
 
 
 def keywords(request):
     obj = list(Keyword.objects.all())
     return HttpResponse(
-        json.dumps([{'word':attr.word} for attr in list(obj)]))
+        json.dumps([{'Word':attr.Word} for attr in list(obj)]))
 
 
 def target(request):
     obj = list(Target.objects.all())
     return HttpResponse(
-        json.dumps([{'name':attr.name,
-                     'base_url':attr.base_url} for attr in list(obj)]))
+        json.dumps([{'Name':attr.name,
+                     'Base_url':attr.base_url} for attr in list(obj)]))
 
 @csrf_exempt
 def update(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = request.POST['id']
-        data['relevance'] = request.POST['relevance']
-        data['learning'] = request.POST['learning']
-        data['finding'] = request.POST['finding']
-        data['pages'] = request.POST['pages']
+        data['Id'] = request.POST['Id']
+        data['Relevance'] = request.POST['Relevance']
+        data['Learning'] = request.POST['Learning']
+        data['Finding'] = request.POST['Finding']
+        data['Pages'] = request.POST['Pages']
         print(data)
         for item in data:
             for key, value in item.items():
-                if key == 'id':
-                    id_num = value
-            obj = Item.objects.filter(id=id_num).update(**item)
+                if key == 'Id':
+                    Id_num = value
+            obj = Item.objects.filter(Id=Id_num).update(**item)
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
 
@@ -58,25 +58,25 @@ def update(request):
 def to_my_selection(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = request.POST['id']
+        data['Id'] = request.POST['Id']
         data['My_selection'] = request.POST['My_selection']
         for item in data:
             for key, value in item.items():
-                if key == 'id':
-                    id_num = value
-            obj = Item.objects.filter(id=id_num).update(**item)
+                if key == 'Id':
+                    Id_num = value
+            obj = Item.objects.filter(Id=Id_num).update(**item)
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
 
 def to_trash_section(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = request.POST['id']
+        data['Id'] = request.POST['Id']
         data['Trash_selection'] = request.POST['Trash_selection']
         for item in data:
             for key, value in item.items():
-                if key == 'id':
-                    id_num = value
-            obj = Item.objects.filter(id=id_num).update(**item)
+                if key == 'Id':
+                    Id_num = value
+            obj = Item.objects.filter(Id=Id_num).update(**item)
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
