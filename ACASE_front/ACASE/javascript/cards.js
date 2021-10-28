@@ -42,7 +42,7 @@ class Inbox {
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
-      htmlElements += `<div id="${element.Id}" class="col-4 p-3">
+      htmlElements += `<div id="${element.Id}" class="col-lg-4 p-3">
       <div class="card">
       <div class="card-body">
       <div>
@@ -55,8 +55,8 @@ class Inbox {
       <p class="source-url mb-2"><b>Fuente:</b> ${this.truncateUrl(element.Url)}/</p>
       <a href="${element.Url}" target="_blank" class="btn btn-primary">Visitar</a>
       <a data-id="${element.Id}" href="#" class="modify-button btn btn-primary">Modificar</a>
-      <img id="${element.Id}" class="trash-icon" src="./icons/trash-can.png" alt="trash">
-      <img id="${element.Id}" class="check-icon" src="./icons/approved.png" alt="check">
+      <img id="${element.Id}" class="trash-icon" src="./icons/times-circle-regular.svg" alt="trash">
+      <img id="${element.Id}" class="check-icon" src="./icons/check-circle-regular.svg" alt="check">
       </div>
       </div>
       </div>
