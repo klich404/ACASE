@@ -33,8 +33,8 @@ def keywords(request):
 def target(request):
     obj = list(Target.objects.all())
     return HttpResponse(
-        json.dumps([{'Name':attr.name,
-                     'Base_url':attr.base_url} for attr in list(obj)]))
+        json.dumps([{'Name':attr.Name,
+                     'Base_url':attr.Base_url} for attr in list(obj)]))
 
 @csrf_exempt
 def update(request):
