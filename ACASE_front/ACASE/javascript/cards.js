@@ -5,8 +5,8 @@ class Inbox {
       try {
         const response = await axios.get('http://127.0.0.1:8000/card/');
         let responseList = response.data; // All objects 10 []
-        //let = responseList = []
-/*         entireList.forEach(e => {
+/*         let responseList = []
+        entireList.forEach(e => {
         if (e.My_selection == false && e.Trash_section == false)
           responseList.push(e)
         }) */
@@ -32,6 +32,7 @@ class Inbox {
         }
       this.showForm();
       this.toMySelection();
+      this.toTrash();
       } catch (error) {
         console.log(error);
       }
@@ -63,31 +64,11 @@ class Inbox {
     });
     return htmlElements
   }
+// Truncate the text with 180 words 
   truncateText (text, limit = 180) {
     return (text.length <= limit)
       ? text
       : text.slice(0, limit) + "..."
-  }
-  toMySelection () {
-    document.querySelectorAll('.check-icon').forEach(e => {
-      e.addEventListener('click', () => {
-        let paidLoad = {}
-        paidLoad['id'] = e.getAttribute('id')
-        paidLoad['My_selection'] = true;
-        (async () => {
-          try { 
-            const response = await axios.post('http://127.0.0.1:8000/my_selection/', {
-              id:  e.getAttribute('id'),
-              My_selection: true
-            })
-          } catch (error) {
-            console.error(error);
-          }
-          alert('Tu carta se ha enviado a Selección')
-          document.getElementById(e.getAttribute('id')).remove()
-        })();
-      })
-  })
 }
 // This function works with the button "Palabra clave" filtering the cards with
   filterKeyword(keyWord, response) {
@@ -100,14 +81,14 @@ class Inbox {
     return listObjectbyKey;
   }
 // This function return the url list matched with the button Pagina web
-      filterUrl(url, response) {
-        let listObjectByUrl = []
-      response.forEach(element => {
-        if (element.source_url === url)
-          listObjectByUrl.push(element)
-      })
-        return listObjectByUrl;
-     }
+filterUrl(url, response) {
+  let listObjectByUrl = []
+response.forEach(element => {
+  if (element.source_url === url)
+    listObjectByUrl.push(element)
+})
+  return listObjectByUrl;
+}
 // This function return all the element matched with Palabra Clave and Pagina Web
   filterKeyAndValue(keyWord, url, response) {
     let listObjectKeyAndValue = []
@@ -119,42 +100,41 @@ class Inbox {
   }
 
 // Function to create the html content after click in button "Modificar"
-    createOverlay(dataId) {
-      let title = document.getElementById(dataId).querySelector('h5').innerText;
-      let formPage =  `<div class="container-fluid vh-100 prompt-overlay">
-        <div class="prompt">
-          <h2 class="title-text-form">${title}</h2>
-          <form action="http://127.0.0.1:8000/form/" method="POST">
-            <div class="form-control">
-              <label class="form-questions" for="relevance">¿Por qué es relevante este artículo?</label>
-              <textarea id="relevance" cols="60" rows="2" placeholder="Ingresa tu texto" name="relevance"
-                class="input-field"></textarea>
-            </div>
-            <div class="form-control">
-              <label class="form-questions" for="learning">¿Qué vas a aprender de este artículo?</label>
-              <textarea id="learning" cols="60" rows="2" placeholder="Ingresa tu texto" name="learning"
-                class="input-field"></textarea>
-            </div>
-            <div class="form-control">
-              <label class="form-questions" for="finding">¿Cuál es el hallazgo más importante que vas a
-                encontrar aquí?</label>
-              <textarea id="finding" cols="60" rows="2" placeholder="Ingresa tu texto"
-                name="finding" class="input-field"></textarea>
-            </div>
-            <div class="form-control">
-              <label class="form-questions" for="page">Página de inicio y final</label>
-              <textarea id="page" cols="60" rows="2" placeholder="Ingresa tu texto" name="page"
-                class="input-field"></textarea>
-            </div>
-            <button id="close-form">Cerrar</button>
-            <input type="hidden" value="${dataId}" name="id">
-            <input type="submit" value="Enviar" id="submit-btn" class="submit-btn">
-          </form>
-        </div>
-      </div>`
-      console.log(formPage)
-      return formPage
-    }
+  createOverlay(dataId) {
+    let title = document.getElementById(dataId).querySelector('h5').innerText;
+    let formPage =  `<div class="container-fluid vh-100 prompt-overlay">
+      <div class="prompt">
+        <h2 class="title-text-form">${title}</h2>
+        <form action="http://127.0.0.1:8000/form/" method="POST">
+          <div class="form-control">
+            <label class="form-questions" for="relevance">¿Por qué es relevante este artículo?</label>
+            <textarea id="relevance" cols="60" rows="2" placeholder="Ingresa tu texto" name="relevance"
+              class="input-field"></textarea>
+          </div>
+          <div class="form-control">
+            <label class="form-questions" for="learning">¿Qué vas a aprender de este artículo?</label>
+            <textarea id="learning" cols="60" rows="2" placeholder="Ingresa tu texto" name="learning"
+              class="input-field"></textarea>
+          </div>
+          <div class="form-control">
+            <label class="form-questions" for="finding">¿Cuál es el hallazgo más importante que vas a
+              encontrar aquí?</label>
+            <textarea id="finding" cols="60" rows="2" placeholder="Ingresa tu texto"
+              name="finding" class="input-field"></textarea>
+          </div>
+          <div class="form-control">
+            <label class="form-questions" for="page">Página de inicio y final</label>
+            <textarea id="page" cols="60" rows="2" placeholder="Ingresa tu texto" name="page"
+              class="input-field"></textarea>
+          </div>
+          <button id="close-form">Cerrar</button>
+          <input type="hidden" value="${dataId}" name="id">
+          <input type="submit" value="Enviar" id="submit-btn" class="submit-btn">
+        </form>
+      </div>
+    </div>`
+    return formPage
+  }
 // Function to listen click of Button "Modificar" and open the form with the method createOverlay
   showForm() {
     document.querySelectorAll('.modify-button').forEach(e => {
@@ -174,6 +154,46 @@ class Inbox {
     document.getElementById('close-form').addEventListener('click', () => {
       document.getElementById(dataId).remove();
     });
+  }
+// Set the key My_selection to true and delete it from Bandeja Principal
+  toMySelection() {
+    document.querySelectorAll('.check-icon').forEach(e => {
+      e.addEventListener('click', () => {
+/*         let paidLoad = {}
+        paidLoad['id'] = e.getAttribute('id')
+        paidLoad['My_selection'] = true; */
+        (async () => {
+          try {
+            const response = await axios.post('http://127.0.0.1:8000/to_my_selection/', {
+              My_selection: true,
+            })
+          } catch (error) {
+            console.error(error);
+          }
+          alert('Tu carta se ha enviado a Selección')
+          document.getElementById(e.getAttribute('id')).remove()
+        })();
+      })
+    })
+  }
+// Set the keyTrash_section to true and delete it from Bandeja Principal
+  toTrash() {
+    document.querySelectorAll('.trash-icon').forEach(e => {
+      e.addEventListener('click', () => {
+        (async () => {
+          try {
+            const response = await axios.post('http://127.0.0.1:8000//to_trash_icon/', {
+              id: e.getAttribute('id'),
+              Trash_section: true
+            })
+          } catch (error) {
+            console.error(error);
+          }
+          alert('Tu carta se ha enviado a Papelera')
+          document.getElementById(e.getAttribute('id')).remove()
+        })();
+      })
+    })
   }
 }
 

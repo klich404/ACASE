@@ -33,7 +33,7 @@ body {
 
 /* HEADER */
 .navbar {
-    height: 70px;
+    height: 75px;
     width: 100%;
     background-color: var(--header-color);
     box-shadow: white 1px 0.5px;
@@ -169,15 +169,15 @@ nav span {
 
 /* ICONS */
 .trash-icon {
-    width: 29.5px;
-    height: 26.5px;
+    width: 30px;
+    height: 27px;
     float: right;
     display: flex;
     margin: 2px 5px;
 }
 .check-icon {
-    width: 24px;
-    height: 25px;
+    width: 25px;
+    height: 26.5px;
     float: right;
     display: flex;
     margin: 2px 1.2px;
@@ -240,4 +240,28 @@ nav span {
 
 .form-control {
     border: none;
+}
+
+/* visualize button */
+#visualize-button {
+    background-color: var(--bg-color);
+    color: white;
+    font-size: 18px;
+    font-family: var(--bold-medium);
+    font-weight: 100px;
+    border: 1px solid var(--bg-color);
+}
+
+#visualize-img {
+    width: 55px;
+    height: 55px;
+}
+#visualize-content:hover {
+    opacity: 60%;
+}
+
+#visualize-content {
+    margin: 20px;
+    margin-right: 10px;
+    cursor: pointer;
 }
