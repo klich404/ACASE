@@ -16,6 +16,8 @@ def retrieve_items(request):
                      'source_url': attr.source_url,
                      'Associated_KW': attr.Associated_KW,
                      'text':attr.text,
+                     'My_selection': attr.My_selection,
+                     'Trash_section': attr.Trash_section,
                      'relevance':attr.relevance,
                      'learning':attr.learning,
                      'finding':attr.finding,
@@ -49,8 +51,8 @@ def update(request):
                 if key == 'id':
                     id_num = value
             obj = Item.objects.filter(id=id_num).update(**item)
-        return HttpResponce('melo caramelo')
-    return HttpResponce('todo mal')
+        return HttpResponse('melo caramelo')
+    return HttpResponse('todo mal')
 
 
 def to_my_selection(request):
@@ -63,8 +65,8 @@ def to_my_selection(request):
                 if key == 'id':
                     id_num = value
             obj = Item.objects.filter(id=id_num).update(**item)
-        return HttpResponce('melo caramelo')
-    return HttpResponce('todo mal')
+        return HttpResponse('melo caramelo')
+    return HttpResponse('todo mal')
 
 def to_trash_section(request):
     if request.method == 'POST':
@@ -76,5 +78,5 @@ def to_trash_section(request):
                 if key == 'id':
                     id_num = value
             obj = Item.objects.filter(id=id_num).update(**item)
-        return HttpResponce('melo caramelo')
-    return HttpResponce('todo mal')
+        return HttpResponse('melo caramelo')
+    return HttpResponse('todo mal')
