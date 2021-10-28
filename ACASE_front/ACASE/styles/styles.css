@@ -87,18 +87,24 @@ nav span {
 
 /* SEARCHING TOOLS */
 .container-searching {
-    margin: 15px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 15px;
 }
 .button-keywords, .button-url {
     margin-right: 10px;
-    width: 23rem;
+    width: 20rem;
     height: 2.5rem;
     text-align: left;
     font-family: var(--light-letter);
-    font-size: 20px;
+    font-style: italic;
+    font-size: 17px;
+    padding-left: 15px;
     color: grey;
     box-shadow: 0 1px 1.5px white;
+    border: none;
 }
 .container-searching .btn {
     height: 2.5rem;
@@ -111,13 +117,11 @@ nav span {
     font-weight: 100px;
     border: 1px solid var(--header-color);
     transition: var(--transition);
-    opacity: 90%;
 }
 
 .btn:hover {
     color: white;
     transition: var(--transition);
-    opacity: 80;
 }
 
 /* CARDS STYLE */
