@@ -92,7 +92,6 @@ nav span {
 }
 .button-keywords, .button-url {
     margin-right: 10px;
-    border-radius: 10px;
     width: 23rem;
     height: 2.5rem;
     text-align: left;
@@ -104,7 +103,6 @@ nav span {
 .container-searching .btn {
     height: 2.5rem;
     width: 10rem;
-    border-radius: 10px;
     background-color: var(--header-color);
     text-align: center;
     color: white;

@@ -183,7 +183,7 @@ response.forEach(element => {
       e.addEventListener('click', () => {
         (async () => {
           try {
-            const response = await axios.post('http://127.0.0.1:8000/to_trash_section/', {
+            const response = await axios.post('http://127.0.0.1:8000/to_trash/', {
               id: e.getAttribute('id'),
               Trash_section: true
             })
