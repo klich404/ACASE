@@ -42,21 +42,21 @@ class Inbox {
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
-      htmlElements += `<div id="${element.id}" class="col-lg-4 p-3">
+      htmlElements += `<div id="${element.Id}" class="col-lg-4 p-3">
       <div class="card">
       <div class="card-body p-2">
       <div>
-      <h5 class="card-title mb-1">${element.title}</h5>
-      <p class="card-text mb-2"> ${this.truncateText(element.text)}
+      <h5 class="card-title mb-1">${element.Title}</h5>
+      <p class="card-text mb-2"> ${this.truncateText(element.Text)}
       </p>
-      <p class="date mb-1"><b>Fecha: </b>${element.date}</p>
-      <p class="source-url mb-2"><b>Fuente:</b> ${element.url}/</p>
+      <p class="date mb-1"><b>Fecha: </b>${element.Date}</p>
+      <p class="source-url mb-2"><b>Fuente:</b> ${element.Url}/</p>
       </div>
       <div>
-      <a href="${element.url}" target="_blank" class="btn btn-primary">Visitar</a>
-      <a data-id="${element.id}" href="#" class="modify-button btn btn-primary">Modificar</a>
-      <img id="${element.id}" class="trash-icon" src="./icons/delete_file.png" alt="trash">
-      <img id="${element.id}" class="check-icon" src="./icons/save_file.png" alt="check">
+      <a href="${element.Url}" target="_blank" class="btn btn-primary">Visitar</a>
+      <a data-id="${element.Id}" href="#" class="modify-button btn btn-primary">Modificar</a>
+      <img id="${element.Id}" class="trash-icon" src="./icons/delete_file.png" alt="trash">
+      <img id="${element.Id}" class="check-icon" src="./icons/save_file.png" alt="check">
       </div>
       </div>
       </div>
@@ -107,24 +107,24 @@ response.forEach(element => {
         <h2 class="title-text-form">${title}</h2>
         <form action="http://127.0.0.1:8000/form/" method="POST">
           <div class="form-control">
-            <label class="form-questions" for="relevance">¿Por qué es relevante este artículo?</label>
-            <textarea id="relevance" cols="60" rows="2" placeholder="Ingresa tu texto" name="relevance"
+            <label class="form-questions" for="Relevance">¿Por qué es relevante este artículo?</label>
+            <textarea id="Relevance" cols="60" rows="2" placeholder="Ingresa tu texto" name="Relevance"
               class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="learning">¿Qué vas a aprender de este artículo?</label>
-            <textarea id="learning" cols="60" rows="2" placeholder="Ingresa tu texto" name="learning"
+            <label class="form-questions" for="Learning">¿Qué vas a aprender de este artículo?</label>
+            <textarea id="Learning" cols="60" rows="2" placeholder="Ingresa tu texto" name="Learning"
               class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="finding">¿Cuál es el hallazgo más importante que vas a
+            <label class="form-questions" for="Finding">¿Cuál es el hallazgo más importante que vas a
               encontrar aquí?</label>
-            <textarea id="finding" cols="60" rows="2" placeholder="Ingresa tu texto"
-              name="finding" class="input-field"></textarea>
+            <textarea id="Finding" cols="60" rows="2" placeholder="Ingresa tu texto"
+              name="Finding" class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="page">Página de inicio y final</label>
-            <textarea id="page" cols="60" rows="2" placeholder="Ingresa tu texto" name="page"
+            <label class="form-questions" for="Page">Página de inicio y final</label>
+            <textarea id="Page" cols="60" rows="2" placeholder="Ingresa tu texto" name="Page"
               class="input-field"></textarea>
           </div>
           <button id="close-form">Cerrar</button>
@@ -165,6 +165,7 @@ response.forEach(element => {
         (async () => {
           try {
             const response = await axios.post('http://127.0.0.1:8000/to_my_selection/', {
+              id: e.getAttribute('id'),
               My_selection: true,
             })
           } catch (error) {
@@ -182,7 +183,7 @@ response.forEach(element => {
       e.addEventListener('click', () => {
         (async () => {
           try {
-            const response = await axios.post('http://127.0.0.1:8000//to_trash_icon/', {
+            const response = await axios.post('http://127.0.0.1:8000/to_trash_section/', {
               id: e.getAttribute('id'),
               Trash_section: true
             })
