@@ -56,11 +56,8 @@ def to_my_selection(request):
     if request.method == 'POST':
         data = {}
         data['id'] = request.POST.get('id')
-        if 'My_selection' in request.POST:
-            data['My_selection'] = True
-        else:
-            data['My_selection'] = False
-            print(data)
+        data['My_selection'] = request.POST.get('My_selection')
+        print(data)
         for key, value in data.items():
             if key == 'id':
                 id_num = value
