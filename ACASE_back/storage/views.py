@@ -48,9 +48,10 @@ def update(request):
         print(data)
         for key, value in data.items():
             print(key, value)
-            if key == 'Id':
-                Id_num = value
-        obj = Item.objects.filter(Id=Id_num).update(**data)
+            if key == 'id':
+                id_num = value
+        obj = Item.objects.filter(id=id_num).update(**data)
+        print(obj)
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
 
