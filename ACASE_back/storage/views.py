@@ -40,7 +40,7 @@ def target(request):
 def update(request):
     if request.method == 'POST':
         data = {}
-        data['Id'] = request.POST['Id']
+        data['id'] = request.POST['id']
         data['Relevance'] = request.POST['Relevance']
         data['Learning'] = request.POST['Learning']
         data['Finding'] = request.POST['Finding']
@@ -58,7 +58,7 @@ def update(request):
 def to_my_selection(request):
     if request.method == 'POST':
         data = {}
-        data['Id'] = request.POST['Id']
+        data['id'] = request.POST['id']
         data['My_selection'] = request.POST['My_selection']
         for item in data:
             for key, value in item.items():
@@ -71,7 +71,7 @@ def to_my_selection(request):
 def to_trash_section(request):
     if request.method == 'POST':
         data = {}
-        data['Id'] = request.POST['Id']
+        data['id'] = request.POST['id']
         data['Trash_selection'] = request.POST['Trash_selection']
         for item in data:
             for key, value in item.items():
