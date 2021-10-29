@@ -39,7 +39,7 @@ def update(request):
     if request.method == 'POST':
         print(request.POST.get('id'))
         print("-----------")
-        print(request.POST['relevance'])
+        print(request.POST['Relevance'])
         data = {}
         data['id'] = request.POST['id']
         data['Relevance'] = request.POST['Relevance']
