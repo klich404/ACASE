@@ -50,8 +50,8 @@ def update(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return
-    return
+        return render(request, '127.0.0.1:5501/index.html')
+    return render(request, '127.0.0.1:5501/index.html')
 
 
 def to_my_selection(request):
