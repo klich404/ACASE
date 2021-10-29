@@ -48,8 +48,8 @@ def update(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponseRedirect('127.0.0.1:5501/index.html')
-    return HttpResponseRedirect('127.0.0.1:5501/index.html')
+        return HttpResponse('melo caramelo')
+    return HttpResponse('todo mal')
 
 
 def to_my_selection(request):
@@ -57,11 +57,10 @@ def to_my_selection(request):
         data = {}
         data['id'] = request.POST['id']
         data['My_selection'] = request.POST['My_selection']
-        for item in data:
-            for key, value in item.items():
-                if key == 'Id':
-                    Id_num = value
-            obj = Item.objects.filter(Id=Id_num).update(**item)
+        for key, value in data.items():
+            if key == 'id':
+                id_num = value
+        Item.objects.filter(id=id_num).update(**data)
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
 
@@ -70,10 +69,9 @@ def to_trash_section(request):
         data = {}
         data['id'] = request.POST['id']
         data['Trash_selection'] = request.POST['Trash_selection']
-        for item in data:
-            for key, value in item.items():
-                if key == 'Id':
-                    Id_num = value
-            obj = Item.objects.filter(Id=Id_num).update(**item)
+        for key, value in data.items():
+            if key == 'id':
+                id_num = value
+        Item.objects.filter(id=id_num).update(**data)
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
