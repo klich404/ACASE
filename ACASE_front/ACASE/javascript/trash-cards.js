@@ -23,9 +23,9 @@ class trashCards {
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
-      htmlElements += `<div id="${element.Id}" class="col-lg-4 p-3">
-      <div class="card">
-      <div class="card-body p-2">
+      htmlElements += `<div id="${element.Id}" class="col">
+      <div class="card  m-2">
+      <div class="card-body">
       <div>
       <h5 class="card-title mb-1">${element.Title}</h5>
       <p class="card-text mb-2"> ${this.truncateText(element.Text)}
@@ -36,8 +36,7 @@ class trashCards {
       <div>
       <a href="${element.Url}" target="_blank" class="btn btn-primary">Visitar</a>
       <a data-id="${element.Id}" href="#" class="modify-button btn btn-primary">Modificar</a>
-      <img id="${element.Id}" class="trash-icon" src="./icons/delete_file.png" alt="trash">
-      <img id="${element.Id}" class="check-icon" src="./icons/save_file.png" alt="check">
+      <img id="${element.Id}" class="check-icon" src="./icons/check-circle-regular.svg" alt="check">
       </div>
       </div>
       </div>

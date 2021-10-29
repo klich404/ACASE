@@ -28,7 +28,7 @@
             </a>
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Bandeja Principal</a>
+                <a class="nav-link" href="#">Biblioteca Principal</a>
               </li>
               <li class="nav-item">
                 <a id="selection-item" class="nav-link" href="./index_selection.html">Selección</a>
@@ -41,14 +41,6 @@
         </div>
       </nav>
     </header>
-
-    <!-- KEG -->
-    <div class="row">
-      <div class="col-one col-3"></div>
-      <div class="col-two col-3"></div>
-      <div class="col-three col-3"></div>
-      <div class="col-four col-3"></div>
-    </div>
 
     <!-- SEARCHING TOOLS -->
     <div class="container-searching">
@@ -65,38 +57,39 @@
     </div>
 
     <!--CARDS-->
-    <div id="cards-container" class="row g-3">
+    <div id="cards-container" class="row row-cols-2 row-cols-md-3 g-3 p-3">
       <!--The html content is in cards.js-->
     </div>
 
 
     <!--MODIFY VIEW-->
-    <!-- <div class="container-fluid vh-100 prompt-overlay">
+    <!--  <div class="container-fluid vh-100 prompt-overlay">
       <div class="prompt">
-        <h2 class="title-text-form">Texto de prueba quiero que sea muy largo</h2>
-        <form class="submit-form">
+        <h2 class="title-text-form">${title}</h2>
+        <form action="http://127.0.0.1:8000/form/" method="POST">
           <div class="form-control">
-            <label class="form-questions" for="relevant-message">¿Por qué es relevante este artículo?</label>
-            <textarea id="relevant-message" cols="60" rows="2" placeholder="Ingresa el texto" name="relevant_message"
+            <label class="form-questions" for="Relevance">¿Por qué es relevante este artículo?</label>
+            <textarea id="Relevance" cols="60" rows="2" placeholder="Ingresa tu texto" name="Relevance"
               class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="relevant-learning">¿Qué vas a aprender de este artículo?</label>
-            <textarea id="relevant-learning" cols="60" rows="2" placeholder="Ingresa el texto" name="relevant_learning"
+            <label class="form-questions" for="Learning">¿Qué vas a aprender de este artículo?</label>
+            <textarea id="Learning" cols="60" rows="2" placeholder="Ingresa tu texto" name="Learning"
               class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="relevant-encounter">¿Cuál es el hallazgo más importante que vas a
+            <label class="form-questions" for="Finding">¿Cuál es el hallazgo más importante que vas a
               encontrar aquí?</label>
-            <textarea id="relevant-encounter" cols="60" rows="2" placeholder="Ingresa el texto"
-              name="relevant_encounter" class="input-field"></textarea>
+            <textarea id="Finding" cols="60" rows="2" placeholder="Ingresa tu texto" name="Finding"
+              class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="pages">Página de inicio y final</label>
-            <textarea id="pages" cols="60" rows="2" placeholder="Ingresa el texto" name="pages"
+            <label class="form-questions" for="Page">Página de inicio y final</label>
+            <textarea id="Page" cols="60" rows="2" placeholder="Ingresa tu texto" name="Page"
               class="input-field"></textarea>
           </div>
           <button id="close-form">Cerrar</button>
+          <input type="hidden" value="${dataId}" name="id">
           <input type="submit" value="Enviar" id="submit-btn" class="submit-btn">
         </form>
       </div>
