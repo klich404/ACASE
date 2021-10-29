@@ -37,9 +37,6 @@ def target(request):
 @csrf_exempt
 def update(request):
     if request.method == 'POST':
-        print(request.POST.get('id'))
-        print("-----------")
-        print(request.POST['Relevance'])
         data = {}
         data['id'] = request.POST['id']
         data['Relevance'] = request.POST['Relevance']
@@ -61,7 +58,7 @@ def to_my_selection(request):
         print("-----------")
         print(request.POST.get('My_selection'))
         data = {}
-        data['id'] = request.POST['id']
+        data['id'] = request.POST.get('id')
         data['My_selection'] = request.POST['My_selection']
         print(data)
         for key, value in data.items():
