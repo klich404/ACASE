@@ -54,7 +54,7 @@ def update(request):
 @csrf_exempt
 def to_my_selection(request):
     if request.method == 'POST':
-        print(request.raw_post_data())
+        print(request.POST['id'])
         print("-----------")
         print(request.POST['My_selection'])
         data = {}
