@@ -39,7 +39,7 @@ def update(request):
     if request.method == 'POST':
         print(request.POST.get('id'))
         print("-----------")
-        print(request.POST.get('relevance'))
+        print(request.POST['relevance'])
         data = {}
         data['id'] = request.POST['id']
         data['Relevance'] = request.POST['Relevance']
@@ -59,7 +59,7 @@ def to_my_selection(request):
     if request.method == 'POST':
         print(request.POST.get('id'))
         print("-----------")
-        print(request.POST.get('My_selection'))
+        print(request.POST['My_selection'])
         data = {}
         data['id'] = request.POST['id']
         data['My_selection'] = request.POST['My_selection']
