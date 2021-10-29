@@ -59,7 +59,7 @@ def to_my_selection(request):
         print(request.POST.get('My_selection'))
         data = {}
         data['id'] = request.POST.get('id')
-        data['My_selection'] = request.POST['My_selection']
+        data['My_selection'] = request.POST.get('My_selection')
         print(data)
         for key, value in data.items():
             if key == 'id':
