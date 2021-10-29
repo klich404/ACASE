@@ -24,7 +24,7 @@ class trashCards {
     let htmlElements = ``
     cards.forEach(element => {
       htmlElements += `<div id="${element.Id}" class="col">
-      <div class="card  m-2">
+      <div class="card m-2">
       <div class="card-body">
       <div>
       <h5 class="card-title mb-1">${element.Title}</h5>

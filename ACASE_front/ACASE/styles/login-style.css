@@ -5,8 +5,27 @@
 /* AVENIR LIGHT */
 @import url(//db.onlinewebfonts.com/c/116af611cbcd9e4bada60b4e700430c1?family=Avenir+Light);
 /* VARIABLES */
-
 :root {
+    --bold-family: "Avenir Heavy", sans-serif;
+    --bold-medium: "Avenir Medium", sans-serif;
+    --light-letter: "Avenir Light", sans-serif;
+    --bg-color: #1F1F1F;
+    --grey-dark: #363636;
+    --grey--light: #909090;
+    --title-color: #fff;
+    --paragraph-color : #eaeaea;
+    --header-color: #352C21;
+    --logo-color: #6832d9;
+    --nav-bar-letters: #E99E2D;
+    --buttons-colors: #654D2F;
+    --first-color: #f6c843;
+    --second-color: #ef7a2e;
+    --third-color: #7ccd9a;
+    --transition: 0.15s;
+}
+
+
+/* :root {
     --bold-family: "Avenir Heavy", sans-serif;
     --bold-medium: "Avenir Medium", sans-serif;
     --light-letter: "Avenir Light", sans-serif;
@@ -18,7 +37,7 @@
     --third-color: #7ccd9a;
     --fourth-color: #e3558f;
     --transition: 0.15s;
-}
+} */
 
 body {
     background-color: var(--bg-color);

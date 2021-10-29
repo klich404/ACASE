@@ -43,16 +43,15 @@ class Inbox {
     let htmlElements = ``
     cards.forEach(element => {
       htmlElements += `<div id="${element.id}" class="col">
-      <div class="card">
+      <div class="card m2">
       <div class="card-body">
       <div>
-      <h3 class="card-title">${this.truncateTitle(element.Title)}</h3>
-      <p class="card-text"> ${this.truncateText(element.Text)}
-      </p>
+      <h3 class="card-title mb-3">${this.truncateTitle(element.Title)}</h3>
+      <p class="card-text mb-2"> ${this.truncateText(element.Text)}</p>
       </div>
       <div>
-      <p class="date"><b>Fecha: </b>${element.Date}</p>
-      <p class="source-url"><b>Fuente:</b> ${this.truncateUrl(element.Url)}/</p>
+      <p class="date mb-1"><b>Fecha: </b>${element.Date}</p>
+      <p class="source-url mb-2"><b>Fuente:</b> ${this.truncateUrl(element.Url)}/</p>
       <a href="${element.Url}" target="_blank" class="btn btn-primary">Visitar</a>
       <a data-id="${element.id}" href="#" class="modify-button  btn btn-primary">Modificar</a>
       <img id="${element.id}" class="trash-icon" src="./icons/times-circle-regular.svg" alt="trash">
@@ -161,9 +160,15 @@ response.forEach(element => {
       })
     })
   }
-// Function to close the form after click
+// Function to close the form after click Cerrar
   closeForm(dataId) {
     document.getElementById('close-form').addEventListener('click', () => {
+      document.getElementById(dataId).remove();
+    });
+  }
+  // Function to close form after click in Enviar
+  closeForm(dataId) {
+    document.getElementById('submit-btn').addEventListener('click', () => {
       document.getElementById(dataId).remove();
     });
   }
@@ -171,9 +176,6 @@ response.forEach(element => {
   toMySelection() {
     document.querySelectorAll('.check-icon').forEach(e => {
       e.addEventListener('click', () => {
-/*         let paidLoad = {}
-        paidLoad['id'] = e.getAttribute('id')
-        paidLoad['My_selection'] = true; */
         (async () => {
           try {
             const response = await axios.post('http://127.0.0.1:8000/to_my_selection/', {
