@@ -52,6 +52,7 @@ def update(request):
     return HttpResponse('todo mal')
 
 
+@csrf_exempt
 def to_my_selection(request):
     if request.method == 'POST':
         data = {}
@@ -64,6 +65,8 @@ def to_my_selection(request):
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
 
+
+@csrf_exempt
 def to_trash_section(request):
     if request.method == 'POST':
         data = {}
