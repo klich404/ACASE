@@ -1,8 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from storage.models import Item, Keyword, Target
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-import pdb
+from storage.models import Item, Keyword, Target
 import json
 
 
@@ -50,8 +48,8 @@ def update(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return render(request, 'index.html')
-    return render(request, 'index.html')
+        return HttpResponseRedirect('127.0.0.1:5501/index.html')
+    return HttpResponseRedirect('127.0.0.1:5501/index.html')
 
 
 def to_my_selection(request):
