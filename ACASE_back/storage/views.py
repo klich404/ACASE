@@ -46,7 +46,10 @@ def update(request):
         data['Finding'] = request.POST['Finding']
         data['Pages'] = request.POST['Pages']
         print(data)
+        print(type(data))
         for item in data:
+            print(item)
+            print(type(item))
             for key, value in item.items():
                 if key == 'Id':
                     Id_num = value
