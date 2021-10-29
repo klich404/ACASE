@@ -45,13 +45,11 @@ def update(request):
         data['Learning'] = request.POST['Learning']
         data['Finding'] = request.POST['Finding']
         data['Pages'] = request.POST['Pages']
-        print(data)
         for key, value in data.items():
             print(key, value)
             if key == 'id':
                 id_num = value
-        obj = Item.objects.filter(id=id_num).update(**data)
-        print(obj)
+        Item.objects.filter(id=id_num).update(**data)
         return HttpResponse('melo caramelo')
     return HttpResponse('todo mal')
 
