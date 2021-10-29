@@ -55,7 +55,7 @@ def update(request):
 def to_my_selection(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = request.POST.get['id']
+        data['id'] = request.POST['id']
         if 'My_selection' in request.POST:
             data['My_selection'] = True
         else:
