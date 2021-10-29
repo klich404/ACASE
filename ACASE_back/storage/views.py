@@ -21,7 +21,7 @@ def retrieve_items(request):
                      'Relevance':attr.Relevance,
                      'Learning':attr.Learning,
                      'Finding':attr.Finding,
-                     'Page':attr.Page} for attr in list(obj)]))
+                     'Pages':attr.Pages} for attr in list(obj)]))
 
 
 def keywords(request):

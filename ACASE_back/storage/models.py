@@ -22,7 +22,7 @@ class Item(models.Model):
     Relevance            = models.TextField(null=True, blank=True, default=None)
     Learning             = models.TextField(null=True, blank=True, default=None)
     Finding              = models.TextField(null=True, blank=True, default=None)
-    Page                = models.TextField(null=True, blank=True, default=None)
+    Pages                = models.TextField(null=True, blank=True, default=None)
 
 class Keyword(models.Model):
     Word  = models.CharField(max_length=30, blank=False)
