@@ -9,7 +9,7 @@ import json
 def retrieve_items(request):
     obj = list(Item.objects.all())
     return HttpResponse(
-        json.dumps([{'Id':attr.Id,
+        json.dumps([{'id':attr.id,
                      'Title':attr.Title,
                      'Url':attr.Url,
                      'Date':attr.Date,
