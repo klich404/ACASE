@@ -44,7 +44,6 @@ def update(request):
         data['Finding'] = request.POST['Finding']
         data['Pages'] = request.POST['Pages']
         for key, value in data.items():
-            print(key, value)
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
@@ -56,8 +55,8 @@ def update(request):
 def to_my_selection(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = request.POST['id']
-        data['My_selection'] = request.POST['My_selection']
+        data['id'] = request.POST.get('id')
+        data['My_selection'] = request.POST.get('My_selection')
         for key, value in data.items():
             if key == 'id':
                 id_num = value
@@ -70,8 +69,8 @@ def to_my_selection(request):
 def to_trash_section(request):
     if request.method == 'POST':
         data = {}
-        data['id'] = request.POST['id']
-        data['Trash_selection'] = request.POST['Trash_selection']
+        data['id'] = request.POST.get('id')
+        data['Trash_selection'] = request.POST.get('Trash_selection')
         for key, value in data.items():
             if key == 'id':
                 id_num = value
