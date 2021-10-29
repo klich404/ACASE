@@ -37,6 +37,9 @@ def target(request):
 @csrf_exempt
 def update(request):
     if request.method == 'POST':
+        print(request.POST.get('id'))
+        print("-----------")
+        print(request.POST.get('relevance'))
         data = {}
         data['id'] = request.POST['id']
         data['Relevance'] = request.POST['Relevance']
