@@ -50,8 +50,8 @@ def update(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponse('melo caramelo')
-    return HttpResponse('todo mal')
+        return
+    return
 
 
 def to_my_selection(request):
