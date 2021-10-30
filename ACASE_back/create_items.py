@@ -11,22 +11,22 @@ from storage.models import Item, Keyword
 with open("data.json", "r") as data:
     data = json.load(data)
 
+    kws = []
     for element in data:
         for key, value in element.items():
+            if key == 'Associated_KW':
+                kws.append(value)
+                kws = list(set(kws))
             if key == 'Url':
                 if Item.objects.filter(Url=value).count() >= 1:
                     pass
                 else:
                     Item.objects.create(**element)
 
-agil_objs = Item.objects.all(Associated_KW='agil')
-agil_kw = Keyword.objects.get(Word='agil')
-agil_kw.agil_objs.add(*agil_objs)
-
-liderazgo_objs = Item.objects.all(Associated_KW='liderazgo')
-liderazgo_kw = Keyword.objects.get(Word='liderazgo')
-liderazgo_kw.liderazgo_objs.add(*liderazgo_objs)
-
-seguridad_obj = Item.objects.all(Associated_KW='seguridad')
-seguridad_kw = Keyword.objects.get(Word='seguridad')
-seguridad_kw.seguridad_objs.add(*seguridad_objs)
+for kw in kws:
+    #Keyword.objects.create(Word=kw)
+    print("done")
+for word in kws:
+    objs = Item.objects.filter(Associated_KW=word)
+    kw = Keyword.objects.get(Word=word)
+    kw.objs.add(*objs)
