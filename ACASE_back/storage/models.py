@@ -10,11 +10,11 @@ class Item(models.Model):
 
     Created_at           = models.DateTimeField(auto_now_add=True) #auto_now_add modified the date only when is created
     Updated_at           = models.DateTimeField(auto_now=True) #auto_now_add modified the date averytime who is saved
-    Title                = models.CharField(max_length=100, blank=False)
-    Url                  = models.SlugField(max_length=200, blank=False) #SlugField is a validation for urls
+    Title                = models.CharField(max_length=200, blank=False)
+    Url                  = models.SlugField(max_length=250, blank=False) #SlugField is a validation for urls
     Source_url           = models.SlugField(max_length=200, blank=False)
     Associated_KW        = models.CharField(max_length=30, blank=False)
-    Date                 = models.CharField(max_length=15, blank=False)
+    Date                 = models.CharField(max_length=30, blank=False)
     Text                 = models.TextField(blank=True)
     Languaje             = models.CharField(max_length=6, choices=available_languajes, default='OTHER', blank=True) #choices choice between the objects of the list
     My_selection         = models.BooleanField(default=False)
