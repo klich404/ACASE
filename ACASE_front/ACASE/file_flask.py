@@ -54,7 +54,7 @@ def form():
 
 @app.route('/to_my_selection', strict_slashes=False, methods=['POST'])
 def my_selection():
-    id = int(json.loads(request.data)['id']) - 1
+    id = int(json.loads(request.data)['id'])
     obj[id]['My_selection'] = True
     print(obj[id])
     return 'Succesfully'

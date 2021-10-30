@@ -33,7 +33,7 @@ class mySelectionCards {
       <p class="date mb-1"><b>Fecha: </b>${element.Date}</p>
       <p class="source-url"><b>Fuente:</b> ${this.truncateUrl(element.Url)}/</p>
       <a href="${element.Url}" target="_blank" class="btn btn-primary">Visitar</a>
-      <a data-id="${element.id}" href="#" class="modify-button btn btn-primary">Modificar</a>
+      <a data-id="${element.id}" href="#" class="modify-button btn btn-primary">Visualizar</a>
       <img id="${element.id}" class="trash-icon" src="./icons/times-circle-regular.svg" alt="trash">
       </div>
       </div>
@@ -62,24 +62,11 @@ class mySelectionCards {
       : text.slice(0, limit) + "..."
   }
 
-// Filtering the modified data from object
+// Create a list of elements with modified data from user
   showModifiedData(data) {
-    let AllData = []
-    data.forEach(dataElements => {
-      AllData.push({id: dataElements.id, title: dataElements.Title, relevance: dataElements.Relevance, learning: dataElements.Learning, finding: dataElements.Finding, pages: dataElements.Pages})
-    })
-    this.filteringData(AllData)
-    return AllData
-  }
-
-  filteringData (data) {
-   data.forEach(element => {
-      document.querySelectorAll(".modify-button").forEach(e => {
-        e.addEventListener('click', () => {
-          if (e.getAttribute('data-id') === element) {
-            console.log(element[element.id])
-          }
-        })
+    document.querySelectorAll('.modify-button').forEach((e, i) => {
+      e.addEventListener('click', () => {
+        console.log(data[i])
       })
     })
   }

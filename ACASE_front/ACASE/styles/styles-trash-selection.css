@@ -61,7 +61,7 @@ body {
     font-size: 30px;
     margin-top: 1rem;
     color: var(--title-color);
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
 .company-name {
     color: var(--paragraph-color);
@@ -69,7 +69,7 @@ body {
     font-size: 20px;
     margin: 60px;
     position: relative;
-    bottom: 23px;
+    bottom: 15px;
     margin-left: 33px;
 }
 .nav-link {
@@ -82,38 +82,6 @@ body {
 }
 .nav-link:hover {
     color: var(--paragraph-color);
-}
-
-/* SEARCHING TOOLS */
-.container-searching {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px 15px;
-}
-.button-keywords, .button-url {
-    margin-right: 10px;
-    width: 20rem;
-    height: 2.5rem;
-    text-align: left;
-    font-family: var(--light-letter);
-    font-style: italic;
-    font-size: 17px;
-    padding-left: 15px;
-    border: none;
-}
-.container-searching .btn {
-    height: 2.5rem;
-    width: 10rem;
-    background-color: var(--buttons-colors);
-    text-align: center;
-    color: var(--title-color);
-    font-size: 16px;
-    font-family: var(--bold-family);
-    font-weight: 100px;
-    border: 1px solid var(--buttons-colors);
-    transition: var(--transition);
 }
 
 /* CARDS STYLE */
@@ -176,16 +144,10 @@ body {
     height: 30px;
     float: right;
     display: flex;
-    margin: 2px 7px;
+    margin: 2px 5px;
 }
-.check-icon {
-    width: 30px;
-    height: 30px;
-    float: right;
-    display: flex;
-    margin: 2px 1.8px;
-}
-.check-icon:hover, .trash-icon:hover {
+
+.trash-icon:hover {
     cursor: pointer;
     opacity: 70%;
 }
@@ -197,19 +159,21 @@ body {
 .prompt-overlay {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
-    height: 100vh;
+    height: 100%;
     top: 0;
 }
 .prompt {
     position: absolute;
     top: 50%;
     width: 44vw;
+    height: auto;
     transform: translate(50%, -50%);
     justify-content: center;
     align-items: center;
     border-radius: 2px;
     background-color: var(--bg-color);
     box-shadow: -2px 2px 6px #111;
+    color: white;
 }
 .title-text-form {
     font-family: var(--bold-family);
@@ -232,7 +196,7 @@ body {
     margin: 2px;
 }
 
-#submit-btn, #close-form {
+.close-button-visualization {
     width: 80px;
     height: 29px;
     background-color: var(--buttons-colors);

@@ -167,11 +167,11 @@ response.forEach(element => {
     });
   }
   // Function to close form after click in Enviar
-  closeForm(dataId) {
+/*   closeForm(dataId) {
     document.getElementById('submit-btn').addEventListener('click', () => {
       document.getElementById(dataId).remove();
     });
-  }
+  } */
 // Set the key My_selection to true and delete it from Bandeja Principal
   toMySelection() {
     document.querySelectorAll('.check-icon').forEach(e => {
@@ -197,7 +197,7 @@ response.forEach(element => {
       e.addEventListener('click', () => {
         (async () => {
           try {
-            const response = await axios.post('http://127.0.0.1:8000/to_trash/', {
+            const response = await axios.post('http://127.0.0.1:8000/to_trash_section/', {
               id: e.getAttribute('id'),
               Trash_section: true
             })
