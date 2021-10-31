@@ -24,8 +24,10 @@ with open("data.json", "r") as data:
                     Item.objects.create(**element)
 
 for kw in kws:
-    #Keyword.objects.create(Word=kw)
-    print("done")
+    if Keyword.objects.filter(Word=kw).count() >= 1:
+        pass
+    else:
+        Keyword.objects.create(Word=kw)
 for word in kws:
     objs = Item.objects.filter(Associated_KW=word)
     kw = Keyword.objects.get(Word=word)
