@@ -30,5 +30,5 @@ class Keyword(models.Model):
 
 
 class Target(models.Model):
-    Name     = models.CharField(max_length=30, blank=False)
-    Base_url = models.SlugField(max_length=200, blank=False)
+    Base_url = models.CharField(max_length=200, blank=False)
+    Items    = models.ManyToManyField(Item)
