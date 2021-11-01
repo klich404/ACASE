@@ -87,7 +87,7 @@ body {
 /* CARDS STYLE */
 .card {
     text-align: justify;
-    width: 23.5rem;
+    width: 22rem;
     height: 275px;
     display: flexbox;
     justify-content: space-between;

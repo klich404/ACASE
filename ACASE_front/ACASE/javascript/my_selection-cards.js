@@ -107,7 +107,6 @@ class mySelectionCards {
   </div>
      `
 }
-
   // Function to close the form after click Cerrar
   closeForm() {
     document.querySelectorAll('.close-button-visualization').forEach(e => {
@@ -118,4 +117,5 @@ class mySelectionCards {
   });
   }
 }
+
 export { mySelectionCards }

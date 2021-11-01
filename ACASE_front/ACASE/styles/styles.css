@@ -119,7 +119,7 @@ body {
 /* CARDS STYLE */
 .card {
     text-align: justify;
-    width: 23.5rem;
+    width: 22rem;
     height: 275px;
     display: flexbox;
     justify-content: space-between;
@@ -152,7 +152,7 @@ body {
     color: white;
 }
 .btn {
-    width: 80px;
+    width: 90px;
     background-color: var(--buttons-colors);
     border: 1px solid var(--buttons-colors);
     font-family: var(--bold-medium);
