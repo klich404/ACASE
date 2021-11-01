@@ -12,8 +12,7 @@ class mySelectionCards {
         let cards = this.makeCards(responseList);
         document.getElementById('cards-container').innerHTML = cards;
         this.showModifiedData(responseList);
-        /*this.toMySelection();
-        this.toTrash();*/
+        this.showScreenData()
       } catch (error) {
         console.log(error);
       }
@@ -66,10 +65,57 @@ class mySelectionCards {
   showModifiedData(data) {
     document.querySelectorAll('.modify-button').forEach((e, i) => {
       e.addEventListener('click', () => {
-        console.log(data[i])
+        this.showPromptOverlay(data[i]);
       })
     })
   }
-
+// Create the html to view the data selection
+   showPromptOverlay (data) {
+     console.log(data)
+       let htmlElement = `<div class="container-fluid prompt-overlay">
+    <div class="container-fluid prompt">
+      <h2 class="title-text-form">${data.Title}</h2>
+      <div>
+        <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
+        <textarea name="" id="input-field" cols="60"
+          rows="3">${data.Relevance}</textarea>
+      </div>
+      <div>
+        <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
+        <textarea name="" id="input-field" cols="60"
+          rows="3">${data.Finding}</textarea>
+      </div>
+      <div>
+        <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
+        <textarea name="" id="input-field" cols="60"
+          rows="3">${data.Learning}</textarea>
+      </div>
+      <div>
+        <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
+        <textarea name="" id="input-field" cols="60"
+          rows="3">${data.Pages}</textarea>
+      </div>
+      <button class="close-button-visualization">Cerrar</button>
+    </div>
+  </div>
+     `
+    showScreenData(htmlElement)
+   }
+  //
+  showScreenData (htmlElement) {
+    let form = this.showPromptOverlay(htmlElement);
+    let body = document.querySelector('body')
+    let parentElement = document.createElement('div');
+    parentElement.setAttribute('id', 'div-form');
+    parentElement.innerHTML = form
+    body.appendChild(parentElement)
+    this.closeForm(parentElement.getAttribute('id'));
+  }
+  // Function to close the form after click Cerrar
+  closeForm(dataId) {
+    document.getElementById('close-form').addEventListener('click', () => {
+      document.getElementById(dataId).remove();
+    });
+  }
 }
 export { mySelectionCards }

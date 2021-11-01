@@ -225,6 +225,7 @@ body {
     border-radius: 5px;
     color: grey;
     background-color: var(--bg-color);
+    box-sizing: none;
 }
 .form-questions {
     font-family: var(--bold-medium);
