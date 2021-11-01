@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
     #own
     'bot',
-    'storage',
     'corsheaders',
 ]
 
