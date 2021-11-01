@@ -26,14 +26,14 @@ def keywords(request):
     obj = list(Keyword.objects.all())
     return HttpResponse(
         json.dumps([{'Word':attr.Word,
-                     'Items':attr.Item} for attr in list(obj)]))
+                     'Items':attr.Items} for attr in list(obj)]))
 
 
 def target(request):
     obj = list(Target.objects.all())
     return HttpResponse(
-        json.dumps([{'Base_url':attr.Word,
-                     'Items':attr.Item} for attr in list(obj)]))
+        json.dumps([{'Base_url':attr.Base_url,
+                     'Items':attr.Items} for attr in list(obj)]))
 
 @csrf_exempt
 def update(request):
