@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Item(models.Model):
+    """Item object, this is the principal object and his values can be updated"""
     available_languajes = [
         ('ESP', 'ESP'),
         ('ENG', 'ENG'),
@@ -25,10 +26,12 @@ class Item(models.Model):
     Pages                = models.TextField(null=True, blank=True, default=None)
 
 class Keyword(models.Model):
+    """Keyword object, have a m2m relationship with Item objects"""
     Word  = models.CharField(max_length=30, blank=False)
     Items = models.ManyToManyField(Item)
 
 
 class Target(models.Model):
+    """Target object, have a m2m relationship with Item objects"""
     Base_url = models.CharField(max_length=200, blank=False)
     Items    = models.ManyToManyField(Item)

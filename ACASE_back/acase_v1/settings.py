@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #own
-    'bot',
     'storage',
     'corsheaders',
 ]
