@@ -35,7 +35,7 @@ def target(request):
     urls = []
     for attr in obj:
         urls.append(attr.Base_url)
-    return HttpResponse(json.dumps(json.dumps(urls)))
+    return HttpResponse(json.dumps(urls))
 
 @csrf_exempt
 def update(request):
