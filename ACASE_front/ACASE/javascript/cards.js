@@ -10,29 +10,14 @@ class Inbox {
         if (e.My_selection == false && e.Trash_section == false)
           responseList.push(e)
         })
-        // It works if with Palabra clave match with keywords
-        if (keyWord) {
-          responseList = this.filterKeyword(keyWord, responseList); // Filter object 1 []
-          let cards = this.makeCards(responseList); // 10 [] o 1 [] depeding if keyword exists
-          document.getElementById('cards-container').innerHTML = cards;
-        // It work if with Pagina Web matchs with url
-        } if (urlValue) {
-          responseList = this.filterUrl(urlValue, responseList);
-          let cards = this.makeCards(responseList);
-          document.getElementById('cards-container').innerHTML = cards;
-        // It works with Palabra clave and Pagina Web
-        } if (keyWord && url) {
-          responseList = this.filterKeyAndValue(keyWord, url, responseList);
-          let cards = this.makeCards(responseList);
-          document.getElementById('cards-container').innerHTML = cards;
-        // It works if there's not any match
-        } else {
-          let cards = this.makeCards(responseList);
-          document.getElementById('cards-container').innerHTML = cards;
-        }
-      this.showForm();
-      this.toMySelection();
-      this.toTrash();
+        if (keyWord) responseList = this.filterKeyword(keyWord, responseList)
+        if (urlValue) responseList = this.filterUrl(urlValue, responseList)
+        console.log(responseList)
+        let cards = this.makeCards(responseList); // 10 [] o 1 [] depeding if keyword exists
+        document.getElementById('cards-container').innerHTML = cards;
+        this.showForm();
+        this.toMySelection();
+        this.toTrash();
       } catch (error) {
         console.log(error);
       }
@@ -92,22 +77,13 @@ class Inbox {
     return listObjectbyKey;
   }
 // This function return the url list matched with the button Pagina web
-filterUrl(url, response) {
-  let listObjectByUrl = []
-response.forEach(element => {
-  if (element.source_url === url)
-    listObjectByUrl.push(element)
-})
-  return listObjectByUrl;
-}
-// This function return all the element matched with Palabra Clave and Pagina Web
-  filterKeyAndValue(keyWord, url, response) {
-    let listObjectKeyAndValue = []
-    response.forEach(element => {
-      if (element.source_url === url && element.Associated_KW === keyWord)
-      listObjectKeyAndValue.push(element);
-    })
-    return listObjectKeyAndValue;
+  filterUrl(url, response) {
+    let listObjectByUrl = []
+  response.forEach(element => {
+    if (element.Source_url === url)
+      listObjectByUrl.push(element)
+  })
+    return listObjectByUrl;
   }
 
 // Function to create the html content after click in button "Modificar"
@@ -178,10 +154,10 @@ response.forEach(element => {
       e.addEventListener('click', () => {
         (async () => {
           try {
-            const response = await axios.post('http://127.0.0.1:8000/to_my_selection/', {
+            const response = await axios.post('http://127.0.0.1:8000/to_my_selection/', JSON.stringify( {
               id: e.getAttribute('id'),
               My_selection: true,
-            })
+            }))
           } catch (error) {
             console.error(error);
           }
@@ -197,10 +173,10 @@ response.forEach(element => {
       e.addEventListener('click', () => {
         (async () => {
           try {
-            const response = await axios.post('http://127.0.0.1:8000/to_trash_section/', {
+            const response = await axios.post('http://127.0.0.1:8000/to_trash_section/', JSON.stringify( {
               id: e.getAttribute('id'),
               Trash_section: true
-            })
+            }))
           } catch (error) {
             console.error(error);
           }
