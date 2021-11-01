@@ -99,13 +99,12 @@ class Inbox {
               class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="Learning">¿Qué vas a aprender de este artículo?</label>
+            <label class="form-questions" for="Learning">¿Qué aprendiste de este artículo?</label>
             <textarea id="Learning" cols="60" rows="2" placeholder="Ingresa tu texto" name="Learning"
               class="input-field"></textarea>
           </div>
           <div class="form-control">
-            <label class="form-questions" for="Finding">¿Cuál es el hallazgo más importante que vas a
-              encontrar aquí?</label>
+            <label class="form-questions" for="Finding">¿Cuál es el hallazgo más importa que encontraste?</label>
             <textarea id="Finding" cols="60" rows="2" placeholder="Ingresa tu texto"
               name="Finding" class="input-field"></textarea>
           </div>

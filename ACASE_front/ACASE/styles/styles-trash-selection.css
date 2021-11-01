@@ -120,7 +120,7 @@ body {
     color: white;
 }
 .btn {
-    width: 80px;
+    width: 90px;
     background-color: var(--buttons-colors);
     border: 1px solid var(--buttons-colors);
     font-family: var(--bold-medium);
@@ -146,8 +146,14 @@ body {
     display: flex;
     margin: 2px 5px;
 }
-
-.trash-icon:hover {
+.check-icon {
+    width: 30px;
+    height: 30px;
+    float: right;
+    display: flex;
+    margin: 2px 5px;
+}
+.trash-icon:hover .check-icon:hover {
     cursor: pointer;
     opacity: 70%;
 }
@@ -176,17 +182,19 @@ body {
     background-color: var(--bg-color);
     box-shadow: -2px 2px 6px #111;
     color: white;
+    overflow: auto;
 }
 .title-text-form {
     font-family: var(--bold-family);
     font-size: 25px;
-    margin-left: 15px; 
+    margin: 20px;
+    margin-left: 14px;
     color: var(--title-color);
 }
 .subtitle-visualization{
     font-family: var(--bold-family);
     font-size: 15px;
-    margin: 15px;
+    margin: 5px;
     color: var(--title-color);
 }
 #input-field {
@@ -195,7 +203,8 @@ body {
     border-radius: 5px;
     color: grey;
     background-color: var(--bg-color);
-    margin-left: 22px;
+    margin-left: 14px;
+    margin: 5px;
 }
 .close-button-visualization {
     width: 80px;
@@ -207,7 +216,7 @@ body {
     align-items: center;
     font-size: 12.5px;
     color: white;
-    margin: 5px;
+    margin-bottom: 10px;
     float: right;
     border-radius: 0;
     border: none;

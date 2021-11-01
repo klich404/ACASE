@@ -88,17 +88,17 @@ class mySelectionCards {
           rows="3">${data.Relevance}</textarea>
       </div>
       <div>
-        <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
+        <h4 class="subtitle-visualization">¿Qué aprendiste de este artículo?</h4>
         <textarea name="" id="input-field" cols="60"
           rows="3">${data.Finding}</textarea>
       </div>
       <div>
-        <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
+        <h4 class="subtitle-visualization">¿Cuál es el hallazgo más importa que encontraste?</h4>
         <textarea name="" id="input-field" cols="60"
           rows="3">${data.Learning}</textarea>
       </div>
       <div>
-        <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
+        <h4 class="subtitle-visualization">Página de inicio y final</h4>
         <textarea name="" id="input-field" cols="60"
           rows="3">${data.Pages}</textarea>
       </div>

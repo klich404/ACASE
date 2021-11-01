@@ -120,7 +120,7 @@ body {
 .card {
     text-align: justify;
     width: 22rem;
-    height: 275px;
+    height: 280px;
     display: flexbox;
     justify-content: space-between;
     box-shadow: -2px 2px 6px #111;
