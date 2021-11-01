@@ -4,7 +4,7 @@ function getFetchKeywords () {
     const keywords = await axios.get('http://127.0.0.1:8000/keywords/');
     let listKeywords = ``
     keywords.data.forEach(element => {
-      listKeywords += `<option id="keywords-tag" value=${element.Word}></option>`
+      listKeywords += `<option id="keywords-tag" value=${element.replace(' ', '-')}></option>`
     })
     const datalist = document.getElementById('keywords')
     datalist.innerHTML = listKeywords;
@@ -17,7 +17,7 @@ function getFetchUrl () {
     const url = await axios.get('http://127.0.0.1:8000/target/');
     let urlList = ``
     url.data.forEach(element => {
-      urlList += `<option value=${element.Name}></option>`
+      urlList += `<option value=${element}></option>`
     });
     const listUrl = document.getElementById('url-list')
     listUrl.innerHTML = urlList;

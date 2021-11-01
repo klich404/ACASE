@@ -10,9 +10,9 @@ class Inbox {
         if (e.My_selection == false && e.Trash_section == false)
           responseList.push(e)
         })
-        if (keyWord) responseList = this.filterKeyword(keyWord, responseList)
+        if (keyWord) responseList = this.filterKeyword(keyWord.replace('-', ' '), responseList)
+        console.log(keyWord)
         if (urlValue) responseList = this.filterUrl(urlValue, responseList)
-        console.log(responseList)
         let cards = this.makeCards(responseList); // 10 [] o 1 [] depeding if keyword exists
         document.getElementById('cards-container').innerHTML = cards;
         this.showForm();
