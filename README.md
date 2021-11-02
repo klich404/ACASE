@@ -27,5 +27,7 @@ ACASE 1.0
 
 ## Authors
 **Esneider Granada Valencia** - *Web Developer* - [sneidergv](https://github.com/sneidergv)
+
 **Natalia Arteaga Corrales** - *Frontend Developer* - [natyarteagac](https://github.com/natyarteagac)
+
 **Carlos Cruz Zuluaga** - *Backend Developer* - [klich404](https://github.com/klich404)
