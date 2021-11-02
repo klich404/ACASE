@@ -15,6 +15,7 @@ Clone this repository to access the app from your local environment:
 `git clone https://github.com/klich404/ACASE.git`
 
 Then go into the ACASE/api/ folder and run the Django app with:
+
 `python3 manage.py runserver`
 
 Finally while the api is running open the index.html found in ACASE/Frontend/ with live server or similar and you will be able to see the application from your browser.
