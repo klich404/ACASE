@@ -23,7 +23,7 @@ class Inbox {
       }
     })();
   };
-// This function create the tags and give the respective values
+// This function create the html tags and give respective values
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
@@ -85,7 +85,6 @@ class Inbox {
   })
     return listObjectByUrl;
   }
-
 // Function to create the html content after click in button "Modificar"
   createOverlay(dataId) {
     let title = document.getElementById(dataId).querySelector('h3').innerText;
@@ -141,12 +140,6 @@ class Inbox {
       document.getElementById(dataId).remove();
     });
   }
-  // Function to close form after click in Enviar
-/*   closeForm(dataId) {
-    document.getElementById('submit-btn').addEventListener('click', () => {
-      document.getElementById(dataId).remove();
-    });
-  } */
 // Set the key My_selection to true and delete it from Bandeja Principal
   toMySelection() {
     document.querySelectorAll('.check-icon').forEach(e => {

@@ -12,11 +12,13 @@ class mySelectionCards {
         let cards = this.makeCards(responseList);
         document.getElementById('cards-container').innerHTML = cards;
         this.getAndShowModifiedData(responseList);
+        this.toTrash();
       } catch (error) {
         console.log(error);
       }
     })();
 }
+// HTML of the cards in general
   makeCards(cards) {
     let htmlElements = ``
     cards.forEach(element => {
@@ -40,8 +42,7 @@ class mySelectionCards {
     });
     return htmlElements
   }
-// Truncate the text with 180 words 
-  // Truncate Title
+  // Truncate Title with 90 words
   truncateTitle(text, limit = 90) {
     return (text.length <= limit)
       ? text
@@ -53,14 +54,14 @@ class mySelectionCards {
       ? text
       : text.slice(0, limit) + "..."
   }
-  // Truncate the text with 180 words 
+  // Truncate the text with 90 words
   truncateUrl(text, limit = 90) {
     return (text.length <= limit)
       ? text
       : text.slice(0, limit) + "..."
   }
 
-// Return the object selected by user
+// Return the object selected by user with click in button Visualizar
   getAndShowModifiedData(data) {
     document.querySelectorAll('.modify-button').forEach((e, i) => {
       e.addEventListener('click', () => {
@@ -70,6 +71,7 @@ class mySelectionCards {
       })
     })
   }
+// Render the view with modified data sent by Biblioteca Principal
   renderModifiedData(form) {
     let body = document.querySelector('body');
     let parentElement = document.createElement('div');
@@ -115,6 +117,26 @@ class mySelectionCards {
         document.getElementById('div-form').remove();
     }) 
   });
+  }
+// Send the card to Papelera section
+  toTrash() {
+    document.querySelectorAll('.trash-icon').forEach(e => {
+      e.addEventListener('click', () => {
+        (async () => {
+          try {
+            const response = await axios.post('http://127.0.0.1:8000/to_trash_section/', JSON.stringify({
+              id: e.getAttribute('id'),
+              Trash_section: true,
+              My_selection: false
+            }))
+          } catch (error) {
+            console.error(error);
+          }
+          alert('Tu carta se ha enviado a Papelera')
+          document.getElementById(e.getAttribute('id')).remove()
+        })();
+      })
+    })
   }
 }
 

@@ -58,18 +58,18 @@ body {
 .acase {
     color: var(--logo-color);
     font-family: var(--bold-family);
-    font-size: 30px;
-    margin-top: 1rem;
+    font-size: 33px;
+    margin-top: 0.3rem;
     color: var(--title-color);
-    margin-bottom: 4px;
+    margin-bottom: 1px;
 }
 .company-name {
     color: var(--paragraph-color);
     font-family: var(--bold-family);
     font-size: 20px;
-    margin: 60px;
+    margin: 45px;
     position: relative;
-    bottom: 15px;
+    bottom: 12px;
     margin-left: 33px;
 }
 .nav-link {
@@ -84,11 +84,43 @@ body {
     color: var(--paragraph-color);
 }
 
+/* SEARCHING TOOLS */
+.container-searching {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 15px;
+}
+.button-keywords, .button-url {
+    margin-right: 10px;
+    width: 20rem;
+    height: 2.5rem;
+    text-align: left;
+    font-family: var(--light-letter);
+    font-style: italic;
+    font-size: 17px;
+    padding-left: 15px;
+    border: none;
+}
+.container-searching .btn {
+    height: 2.5rem;
+    width: 10rem;
+    background-color: var(--buttons-colors);
+    text-align: center;
+    color: var(--title-color);
+    font-size: 16px;
+    font-family: var(--bold-family);
+    font-weight: 100px;
+    border: 1px solid var(--buttons-colors);
+    transition: var(--transition);
+}
+
 /* CARDS STYLE */
 .card {
     text-align: justify;
     width: 22rem;
-    height: 275px;
+    height: 280px;
     display: flexbox;
     justify-content: space-between;
     box-shadow: -2px 2px 6px #111;
@@ -144,16 +176,16 @@ body {
     height: 30px;
     float: right;
     display: flex;
-    margin: 2px 5px;
+    margin: 2px 7px;
 }
 .check-icon {
     width: 30px;
     height: 30px;
     float: right;
     display: flex;
-    margin: 2px 5px;
+    margin: 2px 1.8px;
 }
-.trash-icon:hover .check-icon:hover {
+.check-icon:hover, .trash-icon:hover {
     cursor: pointer;
     opacity: 70%;
 }
@@ -166,47 +198,42 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     height: 100vh;
-    top: 0%;
-    overflow: auto;
+    top: 0;
 }
 .prompt {
-    position: relative;
+    position: absolute;
     top: 50%;
-    width: 45vw;
-    margin: 25px;
-    margin-bottom: 30px;
-    height: 100vh;
+    width: 44vw;
     transform: translate(50%, -50%);
     justify-content: center;
+    align-items: center;
     border-radius: 2px;
     background-color: var(--bg-color);
     box-shadow: -2px 2px 6px #111;
-    color: white;
-    overflow: auto;
 }
 .title-text-form {
     font-family: var(--bold-family);
+    margin: 5px 0 5px 10px;
     font-size: 25px;
-    margin: 20px;
-    margin-left: 14px;
+    margin: 15px;
     color: var(--title-color);
 }
-.subtitle-visualization{
-    font-family: var(--bold-family);
-    font-size: 15px;
-    margin: 5px;
-    color: var(--title-color);
-}
-#input-field {
+.input-field {
     font-family: var(--light-letter);
     font-size: 17px;
+    font-style: italic;
     border-radius: 5px;
     color: grey;
     background-color: var(--bg-color);
-    margin-left: 14px;
-    margin: 5px;
+    box-sizing: none;
 }
-.close-button-visualization {
+.form-questions {
+    font-family: var(--bold-medium);
+    color: var(--title-color);
+    margin: 2px;
+}
+
+#submit-btn, #close-form {
     width: 80px;
     height: 29px;
     background-color: var(--buttons-colors);
@@ -214,14 +241,19 @@ body {
     font-family: var(--bold-medium);
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
     font-size: 12.5px;
     color: white;
-    margin-bottom: 10px;
+    margin: 5px;
     float: right;
     border-radius: 0;
+    margin-bottom: 10px;
     border: none;
 }
-.close-button-visualization:hover {
+#close-form {
+    margin-right: 15px;
+}
+#submit-btn:hover, #close-form:hover {
     background-color: var(--nav-bar-letters);
     border: none;
 }
