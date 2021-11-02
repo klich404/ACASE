@@ -1,15 +1,5 @@
-### Custom ignores ###
-bin
-include
-lib
-selenium_drivers
-mercer
-hrt
-*.cfg
-
-
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,windows,python,node,vim,linux,pythonvanilla,django,venv,virtualenv
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,windows,python,node,vim,linux,pythonvanilla,django,venv,virtualenv
+# Created by https://www.toptal.com/developers/gitignore/api/python,pythonvanilla,macos,linux,visualstudiocode,vim,venv,virtualenv,django,windows,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=python,pythonvanilla,macos,linux,visualstudiocode,vim,venv,virtualenv,django,windows,node
 
 ### Django ###
 *.log
@@ -324,6 +314,12 @@ dist
 # Serverless Webpack directories
 .webpack/
 
+# Optional stylelint cache
+.stylelintcache
+
+# SvelteKit build / generate output
+.svelte-kit
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 
@@ -467,6 +463,9 @@ tags
 .history
 .ionide
 
+# Support for Project snippet scope
+!.vscode/*.code-snippets
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -493,4 +492,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,windows,python,node,vim,linux,pythonvanilla,django,venv,virtualenv
+# End of https://www.toptal.com/developers/gitignore/api/python,pythonvanilla,macos,linux,visualstudiocode,vim,venv,virtualenv,django,windows,node
