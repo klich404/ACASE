@@ -56,8 +56,8 @@ def update(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
-    return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
+        return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
+    return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
 
 
 @csrf_exempt
@@ -71,8 +71,8 @@ def to_my_selection(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
-    return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
+        return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
+    return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
 
 
 @csrf_exempt
@@ -86,5 +86,5 @@ def to_trash_section(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
-    return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
+        return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
+    return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
