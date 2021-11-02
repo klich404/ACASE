@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from storage.models import Item, Keyword, Target
+from django.shortcuts import redirect
 import json
 
 
@@ -55,8 +56,8 @@ def update(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponse('melo caramelo')
-    return HttpResponse('todo mal')
+        return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
+    return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
 
 
 @csrf_exempt
@@ -70,8 +71,8 @@ def to_my_selection(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponse('melo caramelo')
-    return HttpResponse('todo mal')
+        return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
+    return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
 
 
 @csrf_exempt
@@ -85,5 +86,5 @@ def to_trash_section(request):
             if key == 'id':
                 id_num = value
         Item.objects.filter(id=id_num).update(**data)
-        return HttpResponse('melo caramelo')
-    return HttpResponse('todo mal')
+        return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
+    return HttpResponseRedirect('http://127.0.0.1:5500/Django/ACASE/ACASE_front/ACASE/index.html#')
