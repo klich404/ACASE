@@ -1,15 +1,13 @@
-import time
-import pdb
 import json
+import requests
 from termcolor import colored
 from acase_app.crawler import Crawler
-from acase_app.scraper import Scraper
 from flask import Flask, request
 
 app = Flask(__name__)
 
 
-@ app.route("/bot", strict_slashes=False, methods=['POST'])
+@app.route("/bot", strict_slashes=False, methods=['POST'])
 def run_bot():
     farming = []
 
@@ -49,9 +47,10 @@ def run_bot():
             print(
                 colored(f'\n>>> {count + 1} items have been obtained', 'green'))
 
-    # En vez de retornar el JSON, se debe enviar a un endpoint de Django
-    # para que Django lo almacene en la base de datos.
-    return json.dumps(farming)
+    r = requests.post('http://127.0.0.1:8000/bot/', data=json.dumps(farming))
+
+    print(r.status_code)
+    return "Data sent"
 
 
 if __name__ == '__main__':

@@ -88,3 +88,18 @@ def to_trash_section(request):
         Item.objects.filter(id=id_num).update(**data)
         return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
     return HttpResponseRedirect('http://127.0.0.1:5500/Frontend/index.html')
+
+
+@csrf_exempt
+def run_bot(request):
+    """Receive data to run scraper-bot"""
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        if data:
+            # Here Charls have to stored data into MySQL
+            print(data)
+            with open('items.json', 'w', encoding='utf-8') as f:
+                json.dump(data, f)
+            return HttpResponse('Data succesfully obtained')
+        return HttpResponse('Data missed')
+    return HttpResponse('Bad request')

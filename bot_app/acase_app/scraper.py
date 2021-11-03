@@ -1,16 +1,11 @@
 from bs4 import BeautifulSoup
 from re import search
 from acase_app.consts import months_format
-import pdb
+
 
 class Scraper():
     def __init__(self, html_element):
         self.soup = BeautifulSoup(html_element, 'html.parser')
-        # uncomment to save the entire html object and
-        # execute this program without open the browser
-
-        # with open('hrt', 'w') as f:
-            # f.write(self.soup.prettify())
 
     def find_ads(self):
         element_target = {'a': [], 'button': []}
@@ -29,10 +24,9 @@ class Scraper():
                     for button in div.find_all('button'):
                         for key, attr in button.attrs.items():
                             if search('close', str(attr).lower()):
-                                element_target['button'].append({str(key): attr})
+                                element_target['button'].append(
+                                    {str(key): attr})
         return element_target
-
-
 
     def find_search_field(self):
         inputs = self.soup.find_all('input')
@@ -46,7 +40,6 @@ class Scraper():
                     target.append({attr: value})
 
         return target
-
 
     def find_search_enable_btn(self):
         """ This method returns the 'attr=value'
@@ -68,7 +61,6 @@ class Scraper():
                 if len(target[tag]) > 0:
                     return target
 
-
     def get_results(self, url, keyword='liderazgo'):
         """ This method returns a list of articles
         displayed on the current website"""
@@ -88,7 +80,8 @@ class Scraper():
                 count = False
                 if element.name != 'li':
                     # print(element.name, 'No es un li')
-                    element_classes = element.attrs.get('class') # ['search-item', 'row']
+                    element_classes = element.attrs.get(
+                        'class')  # ['search-item', 'row']
                     if element_classes:
                         for _class in element_classes:
                             if search('search', _class) or search('result', _class):
@@ -144,7 +137,6 @@ class Scraper():
             if len(target[tag]) > 0:
                 result = self.results_to_object(target[tag], keyword, url)
                 return result
-
 
     def results_to_object(self, results, keyword, url):
         """ This method takes a list of articles,
