@@ -96,10 +96,43 @@ def run_bot(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         if data:
-            # Here Charls have to stored data into MySQL
-            print(data)
-            with open('items.json', 'w', encoding='utf-8') as f:
-                json.dump(data, f)
+            kws = []
+            source_url = []
+            for element in data:
+                for key, value in element.items():
+                    if key == 'Source_url':
+                        source_url.append(value)
+                        source_url = list(set(source_url))  # save all the source url
+                    if key == 'Associated_KW':
+                        kws.append(value)
+                        kws = list(set(kws))  # save all the keywords
+                    if key == 'Url':
+                        if Item.objects.filter(Url=value).count() >= 1:  # don't repeat items
+                            pass
+                        else:
+                            Item.objects.create(**element)  # create the new items
+                            for kw in kws:
+                                # don't repeat keywords
+                                if Keyword.objects.filter(Word=kw).count() >= 1:
+                                    pass
+                                else:
+                                    # create the new keyword
+                                    Keyword.objects.create(Word=kw)
+                            for word in kws:
+                                objs = Item.objects.filter(Associated_KW=word)
+                                kw = Keyword.objects.get(Word=word)
+                                kw.Items.add(*objs)  # create new m2m relationship
+                            for sour_url in source_url:
+                                # don't repeat urls
+                                if Target.objects.filter(Base_url=sour_url).count() >= 1:
+                                    pass
+                                else:
+                                    # create the new url
+                                    Target.objects.create(Base_url=sour_url)
+                            for s_url in source_url:
+                                objs = Item.objects.filter(Associated_KW=s_url)
+                                url = Target.objects.get(Base_url=s_url)
+                                url.Items.add(*objs)  # create new m2m relationship
             return HttpResponse('Data succesfully obtained')
         return HttpResponse('Data missed')
     return HttpResponse('Bad request')
