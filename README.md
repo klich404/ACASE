@@ -22,11 +22,11 @@ The user site was developed in HTML, CSS and Javascript where the watchman has t
 - Run Django on port 8000 "`~/Django/ACASE/api$ python3 manage.py runserver`" and run Flask on port 3000 "`~/Django/ACASE/bot_app$ python3 run.py`"
 - Do the following curl in the parent directory: "`~/Django/ACASE$ curl -X POST localhost:3000/bot -H 'Content-Type: application/json' -d @example_to_activate_bot.json`"
 - Run the FrontEnd on port 5500 "`~/Django/ACASE/Frontend/index.html`"
-- Select **keyword**, **web page** and click the search **button**
+- Select **keyword**, **web page** and click the **search** button
 - Handle items to your liking
 
 ## Version
-ACASE 1.0
+**ACASE 1.0**
 
 ## Authors
 **Esneider Granada Valencia** - *Web Developer* - [sneidergv](https://github.com/sneidergv)
