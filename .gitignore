@@ -1,6 +1,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,pythonvanilla,macos,linux,visualstudiocode,vim,venv,virtualenv,django,windows,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,pythonvanilla,macos,linux,visualstudiocode,vim,venv,virtualenv,django,windows,node
 
+results.json
+.vscode
+selenium_drivers
+*.cfg
+
 ### Django ###
 *.log
 *.pot
