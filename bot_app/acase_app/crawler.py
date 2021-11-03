@@ -1,12 +1,14 @@
 import os
+import time
 from termcolor import colored
 from selenium import webdriver
 from acase_app.consts import driver_dir
 from acase_app.scraper import Scraper
 from selenium.webdriver.common.keys import Keys
 
+
 class Crawler(webdriver.Chrome):
-    def __init__(self, driver_path=driver_dir, teardown=False, keywords=False):
+    def __init__(self, url, driver_path=driver_dir, teardown=False, keywords=False):
         # Driver path is required for Selenium to execute the brower driver
         self.driver_path = driver_path
 
@@ -18,14 +20,14 @@ class Crawler(webdriver.Chrome):
         os.environ['PATH'] += self.driver_path
 
         self.keywords = keywords
-
+        self.url = url
         # The Super method brings to Crawler class some attributes given in
         # webdriver class,  like Session_id for instance.
         super(Crawler, self).__init__()
 
-    def start(self, url):
+    def start(self):
         """ Open the browser with a given url"""
-        self.get(url)
+        self.get(self.url)
 
     def __exit__(self, *args):
         """Close the browser application if teardown
@@ -44,7 +46,8 @@ class Crawler(webdriver.Chrome):
         except:
             pass
 
-        html_element = self.find_element_by_xpath('/html/body').get_attribute('outerHTML')
+        html_element = self.find_element_by_xpath(
+            '/html/body').get_attribute('outerHTML')
         soup = Scraper(html_element)
         target_element = soup.find_ads()
 
@@ -55,16 +58,16 @@ class Crawler(webdriver.Chrome):
                         self.find_element_by_css_selector(
                             f'{tag}[{key}="{attr}"]'
                         ).click()
-                        print(colored('\n:: Pop-up deleted ::\n', 'green'))
+                        print(colored(':: Pop-up deleted ::\n', 'green'))
                     except:
                         print('Pop-up still alive =(')
-
 
     def enable_search(self):
         """ This method find and press the button that let
         interact with the placeholder input
         """
-        html_element = self.find_element_by_xpath('/html/body').get_attribute('outerHTML')
+        html_element = self.find_element_by_xpath(
+            '/html/body').get_attribute('outerHTML')
         soup = Scraper(html_element)
 
         elms_obj = soup.find_search_enable_btn()
@@ -76,14 +79,17 @@ class Crawler(webdriver.Chrome):
                         try:
                             if str(attr) == 'class':
                                 for element in value:
-                                    btn = self.find_elements_by_class_name(f'{element}')
+                                    btn = self.find_elements_by_class_name(
+                                        f'{element}')
                                     for e in btn:
                                         try:
                                             e.click()
-                                            print(colored('\n:: The Searching is able ::\n', 'green'))
+                                            print(
+                                                colored(':: The Searching is able ::', 'green'))
                                             return
                                         except:
-                                            print('The searching isn\'t able yet =(')
+                                            print(
+                                                'The searching isn\'t able yet =(')
                         except:
                             pass
                         btn = self.find_elements_by_css_selector(
@@ -92,18 +98,19 @@ class Crawler(webdriver.Chrome):
                         for element in btn:
                             try:
                                 element.click()
-                                print(colored('\n:: The Searching is able ::\n', 'green'))
+                                print(
+                                    colored(':: The Searching is able ::', 'green'))
                                 return
                             except:
                                 print('The searching isn\'t able yet =(')
-
 
     def perform_search(self):
         """ This method writes into the placelholder input
         and perform the searching depends on the KeyWord """
 
-        self.implicitly_wait(3)
-        html_element = self.find_element_by_xpath('/html/body').get_attribute('outerHTML')
+        self.implicitly_wait(5)
+        html_element = self.find_element_by_xpath(
+            '/html/body').get_attribute('outerHTML')
         soup = Scraper(html_element)
         target = soup.find_search_field()
 
@@ -116,14 +123,16 @@ class Crawler(webdriver.Chrome):
                     try:
                         element.send_keys(self.keywords)
                         element.send_keys(Keys.RETURN)
-                        print(colored('\n:: Placeholder fullfilled ::\n', 'green'))
+                        print(colored(':: Placeholder fullfilled ::', 'green'))
                         return
                     except:
-                        print('Can\'t type in search placeholder =(')
-
+                        print(
+                            colored('Can\'t type inside the search input', 'yellow'))
 
     def extract_results(self):
-        html_element = self.find_element_by_xpath('/html/body').get_attribute('outerHTML')
+        time.sleep(3)
+        html_element = self.find_element_by_xpath(
+            '/html/body').get_attribute('outerHTML')
         soup = Scraper(html_element)
-        target = soup.get_results(self.keywords)
+        target = soup.get_results(self.url, self.keywords)
         return target
