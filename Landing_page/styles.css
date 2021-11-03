@@ -1,0 +1,257 @@
+/* AVENIR HEAVY FONT */
+@import url(//db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
+/* AVENIR MEDIUM */
+@import url(//db.onlinewebfonts.com/c/0983e84d4a1963e075b5ae8ca12e2a4f?family=Avenir+Medium);
+/* AVENIR LIGHT */
+@import url(//db.onlinewebfonts.com/c/116af611cbcd9e4bada60b4e700430c1?family=Avenir+Light);
+
+/* VARIABLES */
+:root {
+    --bold-family: "Avenir Heavy", sans-serif;
+    --bold-medium: "Avenir Medium", sans-serif;
+    --light-letter: "Avenir Light", sans-serif;
+    --bg-color: #1F1F1F;
+    --bg-color-two: #181717;
+    --cards-color: #363636;
+    --grey--light: #909090;
+    --title-color: #fff;
+    --paragraph-color: #eaeaea;
+    --header-color: #352C21;
+    --nav-bar-letters: #E99E2D;
+    --buttons-colors: #654D2F;
+}
+
+/*Set body */
+body h2 {
+    font-family: var(--bold-family);
+    font-size: 40px;
+    color: var(--title-color);
+}
+
+
+
+body p {
+    font-family: var(--light-letter);
+    font-size: 18px;
+}
+body h3 {
+    margin: 10px;
+    font-size: 27px;
+}
+/* NAVBAR */
+.navbar {
+    background-color: var(--header-color);
+    height: 80px;
+}
+#project-name {
+    color: var(--title-color);
+    font-family: var(--bold-family);
+    font-size: 35px;
+    margin-left: 10px;
+    position: absolute;
+}
+#company-name {
+    font-family: var(--bold-family);
+    font-size: 18px;
+    position: relative;
+    margin-bottom: -38px;
+    margin-left: 55px;
+}
+.nav-link {
+    color: var(--nav-bar-letters);
+    font-family: var(--bold-family);
+}
+.nav-link:hover {
+    color: var(--title-color);
+}
+
+/* ACASE INTRO */
+#brand-div {
+    justify-content: center;
+    align-items: center;
+    display: flexbox;
+}
+.name-project {
+    font-family: var(--bold-family);
+    font-size: 100px;
+    margin: 70px;
+    margin-left: 100px;
+    position: absolute;
+}
+.name-company {
+    font-size: 50px;
+    font-family: var(--bold-family);
+    position: relative;
+    margin: 234px;
+    bottom: -155px;
+}
+.sigla {
+    position: relative;
+    font-size: 26.5px;
+    bottom: -110px;
+    margin: 35px;
+    margin-top: 60px;
+    color: var(--nav-bar-letters);
+}
+.brand-selection {
+    margin-left: 45px;
+    padding: 10px;
+}
+.what-is {
+    height: 50px;
+}
+
+/*Solving the problem*/
+#solving-container {
+    background-color: var(--bg-color-two);
+}
+.question-solving {
+    padding: 1px;
+}
+.solving-text-all {
+    margin: 50px;
+    padding: 10px;
+    color: var(--paragraph-color);
+}
+.solving-text {
+    margin-top: 15px;
+}
+.slight-img {
+    margin: 30px 40px;
+    padding: 5px;
+    width: 525px;
+    height: 325px;
+    opacity: .9;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px var(--grey--light);
+}
+
+/* HOW ACASE WORKS */
+#how-acase-works {
+    display: flexbox;
+    margin: 25px;
+    text-align: center;
+}
+.acase-functions {
+    width: 525;
+    height: 325px;
+    margin: 20px;
+    border-radius: 3px;
+    opacity: .9;
+    box-shadow: 0 3px 10px var(--grey--light);
+}
+
+/*TECHNOLOGIES*/
+.about-us {
+    background-color: var(--bg-color-two);
+}
+.column-technologies {
+    text-align: center;
+}
+.technolgies-header {
+    padding: 15px;
+}
+.icon-card {
+    background-color: var(--cards-color);
+    width: 100px;
+    height: 90px;
+    border-radius: 11px;
+    padding: 10px;
+    margin: 7px;
+    margin-left: 1%;
+    margin-right: 3%;
+    box-shadow: 0 3px 10px var(--grey--light);
+    margin-bottom: 40px;
+}
+.column-technologies h3 {
+    color: var(--nav-bar-letters);
+}
+
+/*ABOUT US*/
+.name-team-header {
+    padding: 20px;
+    margin-right: 80px;
+}
+.team-members-photo {
+    width: 120px;
+    height: 120px;
+    padding: 6px;
+}
+.biography {
+    margin: 10px;
+    font-size: 10px;
+}
+.team-name {
+    font-family: var(--light-letter);
+    margin-left: 3px;
+}
+.rol {
+    font-family: var(--light-letter);
+    color: var(--nav-bar-letters);
+    margin-top: -9px;
+    margin-left: 3px;
+}
+.social-network {
+    width: 15px;
+    height: 15px;
+    margin-top: -24px;
+    margin-left: 3px;
+}
+.photo-and-biography {
+    display: flex;
+}
+
+/*FORM SECTION*/
+.h2-header {
+    text-align: center;
+    padding: 26px;
+    margin-left: -20px;
+}
+.contact-form {
+    font-family: var(--bold-medium);
+    width: 33rem;
+    margin-left: 15px;
+    border-radius: none;
+}
+.contact-form input {
+    font-family: var(--bold-medium);
+    font-style: italic;
+    display: block;
+    width: 29.8rem;
+    background-color: var(--bg-color);
+    border: none;
+}
+
+#message {
+    display: block;
+    font-family: var(--bold-medium);
+}
+.input-field-message {
+    background-color: var(--bg-color);
+    font-style: italic;
+    border: none;
+}
+#submit-btn {
+    width: 200px;
+    height: 40px;
+    margin-top: 15px;
+    background-color: var(--buttons-colors);
+    border: 1px solid var(--buttons-colors);
+    font-family: var(--bold-medium);
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-left: 2.5px;
+    border-radius: 0;
+    border: none;
+    font-style: normal;
+}
+#submit-btn:hover {
+    cursor: pointer;
+    background-color: var(--nav-bar-letters);
+}
+.brand-selection-down {
+    padding: 30px;
+    margin-top: 60px;
+    opacity: .5;
+}
