@@ -13,8 +13,8 @@ mysqlclient         == 2.0.3
 ```
 
 ## Use
-ACASE (Automated Crawler and Scrapper Engine) is a bot developed in Python with the library Selenium. This scrapper is capable of search information of three websites recommended by the company and return all this information into an API developed with Django and save all the data in a database created with MySQL. All this information is sent into a view to the Frontend where it starts to consume of and return new information sent by the user.
-The user site was developed in HTML, CSS and Javascript where the watchman has the posibility of make the research filtering by keywords and urls, watch a little description about the content of the card, the name, visit the url and make some notes about it also, the user has the posibility of save the card in a different view named Selección or if the user is not interested has the posibility of send it to Papelera view.
+ACASE (Automated Crawler and Scrapper Engine) is a bot developed in Python with the library Selenium. This scrapper is capable of search information of specialized websites recommended by the company and return all this information into an API. All this information is sent into a view to the Frontend where it starts to consume of and return new information sent by the user.
+In the Intranet the watchman has the posibility of make the research filtering by keywords and urls, watch a little description about the content of the card, the name, visit the url and make some notes about it also, the user has the posibility of save the card in a different view named Selección or if the user is not interested has the posibility of send it to Papelera view.
 
 ![Imgur](https://i.imgur.com/rwKLEEd.png)
 
