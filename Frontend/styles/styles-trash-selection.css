@@ -74,8 +74,8 @@ body {
 /* CARDS STYLE */
 .card {
     text-align: justify;
-    width: 22rem;
-    height: 275px;
+    width: 25rem;
+    height: 280px;
     display: flexbox;
     justify-content: space-between;
     box-shadow: -2px 2px 6px #111;
@@ -157,41 +157,39 @@ body {
     overflow: auto;
 }
 .prompt {
-    position: relative;
+    position: absolute;
     top: 50%;
     width: 45vw;
-    margin: 25px;
-    margin-bottom: 30px;
-    height: 100vh;
+    margin-bottom: 15px;
     transform: translate(50%, -50%);
     justify-content: center;
+    align-items: center;
     border-radius: 2px;
     background-color: var(--bg-color);
     box-shadow: -2px 2px 6px #111;
     color: white;
-    overflow: auto;
 }
 .title-text-form {
     font-family: var(--bold-family);
     font-size: 25px;
-    margin: 20px;
+    margin: 22px;
     margin-left: 14px;
     color: var(--title-color);
 }
 .subtitle-visualization{
     font-family: var(--bold-family);
     font-size: 15px;
-    margin: 5px;
+    margin-left: 10px;
+    margin-top: 5px;
     color: var(--title-color);
 }
 #input-field {
     font-family: var(--light-letter);
     font-size: 17px;
-    border-radius: 5px;
+    border-radius: 2px;
     color: grey;
     background-color: var(--bg-color);
-    margin-left: 14px;
-    margin: 5px;
+    margin-left: 21px;
 }
 .close-button-visualization {
     width: 80px;
@@ -203,10 +201,12 @@ body {
     align-items: center;
     font-size: 12.5px;
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     float: right;
     border-radius: 0;
     border: none;
+    margin-right: 10px;
+    margin-top: 15px;
 }
 .close-button-visualization:hover {
     background-color: var(--nav-bar-letters);
@@ -226,4 +226,81 @@ body {
 }
 .filter-input::placeholder {
     color: var(--paragraph-color);
+}
+
+@media screen and (max-width: 1280px) {
+    textarea {
+        width: 500px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .navbar {
+        width: 100%;
+    }
+    .card {
+        width: 20rem;
+        height: 310px;
+        margin-left: 10px;
+        justify-content: space-between;
+        margin: 10px;
+    }
+    .title-text-form {
+        font-size: 20px;
+    }
+    .prompt {
+        height: 38rem;
+        position: absolute;
+        top: 50%;
+        width: 50vw;
+        transform: translate(50%, -50%);
+        justify-content: center;
+        align-items: center;
+        border-radius: 2px;
+        background-color: var(--bg-color);
+        box-shadow: -2px 2px 6px #111;
+    }
+    textarea {
+        border-radius: 2px;
+        width: 480px;
+    }
+   .title-text-form {
+       margin-top: 10px;
+       font-size: 20px; 
+   }
+   .close-button-visualization {
+       margin: 20px;
+       margin-right: 21px;
+   }
+    #input-field {
+       margin-left: 10px;
+   }
+   .subtitle-visualization {
+       margin-left: 10px;
+   }
+}
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 100%;
+    }
+    .card {
+        width: 23rem;
+        height: 310px;
+        margin-left: 10px;
+        justify-content: space-between;
+        margin: 10px;
+    }
+    textarea {
+        width: 350px;
+    }
+    .prompt {
+        height: 38.3rem;
+    }
+    .close-button-visualization {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+   .title-text-form {
+       margin-top: 10px;
+       font-size: 19px;   
+   }
 }

@@ -33,7 +33,6 @@ class trashCards {
       <p class="source-url"><b>Fuente:</b> ${this.truncateUrl(element.Url)}/</p>
       <a href="${element.Url}" target="_blank" class="btn btn-primary">Visitar</a>
       <a data-id="${element.id}" href="#" class="modify-button btn btn-primary">Visualizar</a>
-      <img id="${element.id}" class="trash-icon" src="./icons/times-circle-regular.svg" alt="trash">
       </div>
       </div>
       </div>
@@ -82,7 +81,7 @@ class trashCards {
   // Create the html to view the data selection
   showPromptOverlay(data) {
     return `<div class="container-fluid prompt-overlay">
-      <div class="container-fluid prompt">
+      <div class="prompt">
       <h2 class="title-text-form">${data.Title}</h2>
       <div>
         <h4 class="subtitle-visualization">¿Por qué es relevante este artículo?</h4>
